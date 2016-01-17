@@ -1,134 +1,137 @@
-/* hex-packages.nix is an auto-generated file -- DO NOT EDIT!
-*
-* Unbuildable Packages:
-*
-* active_0_9_0
-* conferl_0_0_1
-* db_0_9_0
-* ekstat_0_2_2
-* erltrace_0_1_4
-* escalus_2_6_4
-* fqc_0_1_5
-*  - libsnarlmatch_0_1_5
-*  - rankmatcher_0_1_2
-* fqc_0_1_7
-* hash_ring_ex_1_1_2
-* gpb_3_18_10
-* gpb_3_18_8
-*  - rebar_protobuffs_0_1_0
-* jose_1_4_2
-* jsxn_0_2_1
-* kvs_2_1_0
-* lager_2_1_1
-* - dqe_0_1_22
-* - ensq_0_1_6
-* - eplugin_0_1_4
-* - fifo_utils_0_1_18
-* - lager_watchdog_0_1_10
-* - mdns_client_0_1_7
-* - mdns_client_lib_0_1_33
-* lasp_0_0_3
-* libleofs_0_1_2
-* ezmq_0_2_0
-* mad_0_9_0
-* hackney_1_4_8
-* mmath_0_1_15
-*  - ddb_client_0_1_17
-*    - folsom_ddb_0_1_20
-*  - dproto_0_1_12
-*  - mstore_0_1_9
-* mmath_0_1_16
-* n2o_2_3_0
-* nodefinder_1_4_0
-*  - cloudi_core_1_4_0_rc_4
-*    - cloudi_service_db_cassandra_1_3_3
-*    - cloudi_service_db_elasticsearch_1_3_3
-*    - cloudi_service_db_riak_1_3_3
-* nodefinder_1_5_1
-*   - cloudi_core_1_5_1
-*   - cloudi_service_api_requests_1_5_1
-*   - cloudi_service_db_1_5_1
-*   - cloudi_service_db_cassandra_cql_1_5_1
-*   - cloudi_service_db_couchdb_1_5_1
-*   - cloudi_service_db_http_elli_1_5_1
-*   - cloudi_service_db_memcached_1_5_1
-*   - cloudi_service_db_mysql_1_5_1
-*   - cloudi_service_db_pgsql_1_5_1
-*   - cloudi_service_db_tokyotyrant_1_5_0
-*   - cloudi_service_filesystem_1_5_1
-*   - cloudi_service_http_client_1_5_1
-*   - cloudi_service_http_cowboy_1_5_1
-*   - cloudi_service_http_rest_1_5_1
-*   - cloudi_service_map_reduce_1_5_1
-*   - cloudi_service_monitoring_1_5_1
-*   - cloudi_service_queue_1_5_1
-*   - cloudi_service_quorum_1_5_1
-*   - cloudi_service_router_1_5_1
-*   - cloudi_service_tcp_1_5_1
-*   - cloudi_service_timers_1_5_1
-*   - cloudi_service_udp_1_5_1
-*   - cloudi_service_validate_1_5_1
-*   - cloudi_service_zeromq_1_5_1
-*   - service_1_5_1
-* fast_yaml_1_0_1
-* parse_trans_2_9_0
-* pooler_1_4_0
-* protobuffs_0_8_2
-*   - rebar3_protobuffs_0_2_0
-*   - riak_pb_2_1_0
-*     - riakc_2_1_1
-* locker_1_0_8
-* cowboy_1_0_4
-*  - cet_0_2_0
-* amqp_client_3_5_6
-* rebar3_abnfc_plugin_0_1_0
-* rebar3_eqc_0_0_8
-* rebar3_exunit_0_1_1
-* rebar3_proper_0_5_0
-* rebar3_yang_plugin_0_2_1
-* hackney_1_1_0
-*  - erlastic_search_1_1_1
-* hackney_1_3_1
-*  - craterl_0_2_3
-* hackney_1_3_2
-*  - epubnub_0_1_0
-* cpg_1_4_0
-* cpg_1_5_1
-* uuid_erl_1_4_0
-* uuid_erl_1_5_1
-* ucol_nif_1_1_5
-* katipo_0_2_4
-* xref_runner_0_2_4
+/* hex-packages.nix is an auto-generated file -- DO NOT EDIT! */
+
+/* Unbuildable packages:
+
+ * active_0_9_0
+ * amqp_client_3_5_6
+ * aws_http_0_2_4
+ * barrel_jiffy_0_14_4
+ * barrel_jiffy_0_14_5
+ * cet_0_2_1
+ * cloudi_core_1_4_0_rc_4
+ * cloudi_core_1_5_1
+ * cloudi_service_api_requests_1_5_1
+ * cloudi_service_db_1_5_1
+ * cloudi_service_db_cassandra_1_3_3
+ * cloudi_service_db_cassandra_cql_1_5_1
+ * cloudi_service_db_couchdb_1_5_1
+ * cloudi_service_db_elasticsearch_1_3_3
+ * cloudi_service_db_http_elli_1_5_1
+ * cloudi_service_db_memcached_1_5_1
+ * cloudi_service_db_mysql_1_5_1
+ * cloudi_service_db_pgsql_1_5_1
+ * cloudi_service_db_riak_1_3_3
+ * cloudi_service_db_tokyotyrant_1_5_0
+ * cloudi_service_filesystem_1_5_1
+ * cloudi_service_http_client_1_5_1
+ * cloudi_service_http_cowboy_1_5_1
+ * cloudi_service_http_rest_1_5_1
+ * cloudi_service_map_reduce_1_5_1
+ * cloudi_service_monitoring_1_5_1
+ * cloudi_service_queue_1_5_1
+ * cloudi_service_quorum_1_5_1
+ * cloudi_service_router_1_5_1
+ * cloudi_service_tcp_1_5_1
+ * cloudi_service_timers_1_5_1
+ * cloudi_service_udp_1_5_1
+ * cloudi_service_validate_1_5_1
+ * cloudi_service_zeromq_1_5_1
+ * cmark_0_6_2
+ * comeonin_2_0_1
+ * conferl_0_0_1
+ * cowboy_1_0_4
+ * cpg_1_4_0
+ * cpg_1_5_1
+ * craterl_0_2_3
+ * db_0_9_0
+ * ddb_client_0_1_17
+ * denrei_0_2_3
+ * dproto_0_1_12
+ * dqe_0_1_22
+ * ekstat_0_2_2
+ * elibphonenumber_0_1_1
+ * enotify_0_1_0
+ * ensq_0_1_6
+ * eplugin_0_1_4
+ * epubnub_0_1_0
+ * eredis_cluster_0_5_4
+ * erlang_lua_0_1_0
+ * erlastic_search_1_1_1
+ * erlaudio_0_2_3
+ * erltrace_0_1_4
+ * escalus_2_6_4
+ * ex_bitcask_0_1_0
+ * ezmq_0_2_0
+ * fast_xml_1_1_2
+ * fast_yaml_1_0_1
+ * fifo_utils_0_1_18
+ * folsom_ddb_0_1_20
+ * fqc_0_1_7
+ * gpb_3_18_10
+ * gpb_3_18_8
+ * hackney_1_1_0
+ * hackney_1_3_1
+ * hackney_1_3_2
+ * hash_ring_ex_1_1_2
+ * jc_1_0_4
+ * jose_1_4_2
+ * jsxn_0_2_1
+ * katipo_0_2_4
+ * kvs_2_1_0
+ * lager_2_1_1
+ * lager_watchdog_0_1_10
+ * lasp_0_0_3
+ * libleofs_0_1_2
+ * locker_1_0_8
+ * mad_0_9_0
+ * mcrypt_0_1_0
+ * mdns_client_0_1_7
+ * mdns_client_lib_0_1_33
+ * mmath_0_1_15
+ * mmath_0_1_16
+ * mstore_0_1_9
+ * n2o_2_3_0
+ * nacl_0_3_0
+ * nodefinder_1_4_0
+ * nodefinder_1_5_1
+ * observer_cli_1_0_3
+ * p1_xml_1_1_1
+ * parse_trans_2_9_0
+ * picosat_0_1_0
+ * pooler_1_4_0
+ * protobuffs_0_8_2
+ * rankmatcher_0_1_2
+ * rebar3_abnfc_plugin_0_1_0
+ * rebar3_auto_0_3_0
+ * rebar3_eqc_0_0_8
+ * rebar3_exunit_0_1_1
+ * rebar3_live_0_1_3
+ * rebar3_proper_0_5_0
+ * rebar3_protobuffs_0_2_0
+ * rebar3_run_0_2_0
+ * rebar3_yang_plugin_0_2_1
+ * rebar_protobuffs_0_1_0
+ * riak_pb_2_1_0
+ * riakc_2_1_1
+ * service_1_5_1
+ * sfmt_0_12_8
+ * siphash_2_1_1
+ * snappy_1_1_1
+ * syslog_1_0_2
+ * ucol_nif_1_1_5
+ * uuid_erl_1_4_0
+ * uuid_erl_1_5_1
+ * xref_runner_0_2_5
+ * yomel_0_5_0
+
 */
 { stdenv, callPackage }:
 
 let
   self = rec {
-
-    aws_http_0_2_4 = callPackage
-      (
-        {  buildHex, barrel_jiffy_0_14_4, lhttpc_1_3_0 }:
-          buildHex {
-            name = "aws_http";
-            version = "0.2.4";
-            sha256 =
-              "96065da0d348a8e47e01531cfa720615e15a21c1bd4e5c82decf56026cde128f";
-
-            erlangDeps = [ barrel_jiffy_0_14_4 lhttpc_1_3_0 ];
-
-            meta = {
-              description = "Amazon AWS HTTP helpers";
-              license = stdenv.lib.licenses.free;
-              homepage = "https://github.com/anha0825/erl_aws_http";
-            };
-          }
-      ) {};
-
-    aws_http = aws_http_0_2_4;
-
     backoff_1_1_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "backoff";
             version = "1.1.3";
@@ -147,7 +150,7 @@ let
 
     barrel_ibrowse_4_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "barrel_ibrowse";
             version = "4.2.0";
@@ -164,47 +167,9 @@ let
 
     barrel_ibrowse = barrel_ibrowse_4_2_0;
 
-    barrel_jiffy_0_14_4 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "barrel_jiffy";
-            version = "0.14.4";
-            sha256 =
-              "3b730d6a18e988b8411f449bbb5df3637eb7bea864302924581b2391dd6b6e71";
-            compilePort = true;
-
-            meta = {
-              description = "JSON Decoder/Encoder.";
-              license = stdenv.lib.licenses.bsd3;
-              homepage = "https://github.com/barrel-db/jiffy";
-            };
-          }
-      ) {};
-
-    barrel_jiffy_0_14_5 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "barrel_jiffy";
-            version = "0.14.5";
-            sha256 =
-              "8a874c6dbcf439a7d7b300b4463f47e088fd54e2b715ef7261e21807ee421f47";
-            compilePort = true;
-
-            meta = {
-              description = "JSON Decoder/Encoder.";
-              license = stdenv.lib.licenses.bsd3;
-              homepage = "https://github.com/barrel-db/jiffy";
-            };
-          }
-      ) {};
-
-    barrel_jiffy = barrel_jiffy_0_14_5;
-
     barrel_oauth_1_6_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "barrel_oauth";
             version = "1.6.0";
@@ -223,7 +188,7 @@ let
 
     base16_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "base16";
             version = "1.0.0";
@@ -242,7 +207,7 @@ let
 
     base64url_0_0_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "base64url";
             version = "0.0.1";
@@ -261,7 +226,7 @@ let
 
     bbmustache_1_0_4 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "bbmustache";
             version = "1.0.4";
@@ -279,7 +244,7 @@ let
 
     bbmustache_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "bbmustache";
             version = "1.1.0";
@@ -299,7 +264,7 @@ let
 
     bear_0_8_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "bear";
             version = "0.8.3";
@@ -318,7 +283,7 @@ let
 
     bstr_0_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "bstr";
             version = "0.3.0";
@@ -337,14 +302,14 @@ let
 
     cache_tab_1_0_1 = callPackage
       (
-        {  buildHex, p1_utils_1_0_1 }:
+        { buildHex, p1_utils_1_0_1 }:
           buildHex {
             name = "cache_tab";
             version = "1.0.1";
             sha256 =
               "717a91101e03535ab65e4a9ce028ae3f0ddfb4ce0fd4144bf8816082c6dc2933";
 
-            erlangDeps = [ p1_utils_1_0_1 ];
+            erlangDeps  = [ p1_utils_1_0_1 ];
 
             meta = {
               description = "In-memory cache Erlang / Elixir library";
@@ -358,7 +323,7 @@ let
 
     certifi_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "certifi";
             version = "0.1.1";
@@ -375,7 +340,7 @@ let
 
     certifi_0_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "certifi";
             version = "0.3.0";
@@ -394,7 +359,7 @@ let
 
     cf_0_1_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cf";
             version = "0.1.2";
@@ -410,7 +375,7 @@ let
 
     cf_0_2_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cf";
             version = "0.2.1";
@@ -426,59 +391,16 @@ let
 
     cf = cf_0_2_1;
 
-    cmark_0_6_2 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "cmark";
-            version = "0.6.2";
-            sha256 =
-              "c17bbc354864cc8dfd352c772eb1655a5c67718c76d76df0aaf6179a833c76ef";
-            compilePort = true;
-
-            meta = {
-              longDescription = ''Elixir NIF for cmark (C), a parser library
-                                following the CommonMark spec, a compatible
-                                implementation of Markdown.'';
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/asaaki/cmark.ex";
-            };
-          }
-      ) {};
-
-    cmark = cmark_0_6_2;
-
-    comeonin_2_0_1 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "comeonin";
-            version = "2.0.1";
-            sha256 =
-              "7f7468625058ab1b817c00efa473d8117b0113a73a429f25cf663d5e2416572f";
-            compilePort = true;
-
-            meta = {
-              description =
-                "Password hashing (bcrypt, pbkdf2_sha512) library for Elixir.";
-              license = stdenv.lib.licenses.bsd3;
-              homepage = "https://github.com/elixircnx/comeonin";
-            };
-          }
-      ) {};
-
-    comeonin = comeonin_2_0_1;
-
     couchbeam_1_2_1 = callPackage
       (
-        {  buildHex, hackney_1_4_4, jsx_2_8_0 }:
+        { buildHex, hackney_1_4_4, jsx_2_8_0 }:
           buildHex {
             name = "couchbeam";
             version = "1.2.1";
             sha256 =
               "ed19f0412aa0539ecf622ac8ade1ca0e316f424e3334ad015a3fb8db19e91194";
 
-            erlangDeps = [ hackney_1_4_4 jsx_2_8_0 ];
+            erlangDeps  = [ hackney_1_4_4 jsx_2_8_0 ];
 
             meta = {
               description = "Erlang CouchDB client";
@@ -491,7 +413,7 @@ let
 
     cowlib_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cowlib";
             version = "1.0.0";
@@ -508,7 +430,7 @@ let
 
     cowlib_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cowlib";
             version = "1.0.2";
@@ -525,7 +447,7 @@ let
 
     cowlib_1_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cowlib";
             version = "1.3.0";
@@ -544,7 +466,7 @@ let
 
     crc_0_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "crc";
             version = "0.3.0";
@@ -564,7 +486,7 @@ let
 
     crypto_rsassa_pss_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "crypto_rsassa_pss";
             version = "1.0.0";
@@ -585,14 +507,14 @@ let
 
     cth_readable_1_2_0 = callPackage
       (
-        {  buildHex, cf_0_2_1 }:
+        { buildHex, cf_0_2_1 }:
           buildHex {
             name = "cth_readable";
             version = "1.2.0";
             sha256 =
               "41dee2a37e0f266c590b3ea9542ca664e84ebc781a3949115eba658afc08026d";
 
-            erlangDeps = [ cf_0_2_1 ];
+            erlangDeps  = [ cf_0_2_1 ];
 
             meta = {
               description = "Common Test hooks for more readable logs";
@@ -606,7 +528,7 @@ let
 
     cucumberl_0_0_6 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "cucumberl";
             version = "0.0.6";
@@ -623,27 +545,9 @@ let
 
     cucumberl = cucumberl_0_0_6;
 
-    denrei_0_2_3 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "denrei";
-            version = "0.2.3";
-            sha256 =
-              "bc0e8cf7e085dda6027df83ef5d63c41b93988bcd7f3db7c68e4dad3cd599744";
-
-            meta = {
-              description = "Denrei - a lightweight Erlang messaging system.";
-              license = stdenv.lib.licenses.mit;
-            };
-          }
-      ) {};
-
-    denrei = denrei_0_2_3;
-
     detergent_0_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "detergent";
             version = "0.3.0";
@@ -662,7 +566,7 @@ let
 
     dflow_0_1_5 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "dflow";
             version = "0.1.5";
@@ -681,7 +585,7 @@ let
 
     discount_0_7_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "discount";
             version = "0.7.0";
@@ -700,7 +604,7 @@ let
 
     dynamic_compile_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "dynamic_compile";
             version = "1.0.0";
@@ -720,7 +624,7 @@ let
 
     econfig_0_7_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "econfig";
             version = "0.7.1";
@@ -739,7 +643,7 @@ let
 
     edown_0_7_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "edown";
             version = "0.7.0";
@@ -758,7 +662,7 @@ let
 
     elixir_ale_0_4_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "elixir_ale";
             version = "0.4.1";
@@ -778,7 +682,7 @@ let
 
     elli_1_0_4 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "elli";
             version = "1.0.4";
@@ -795,29 +699,9 @@ let
 
     elli = elli_1_0_4;
 
-    enotify_0_1_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "enotify";
-            version = "0.1.0";
-            sha256 =
-              "8e48da763ce15bfd75cc857ddfe5011b03189d597f47bcdd8acc6fbbe8e6b6f4";
-            compilePort = true;
-
-            meta = {
-              description = "Filesystem listener";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/tsloughter/enotify";
-            };
-          }
-      ) {};
-
-    enotify = enotify_0_1_0;
-
     eper_0_94_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "eper";
             version = "0.94.0";
@@ -841,7 +725,7 @@ let
 
     epgsql_3_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "epgsql";
             version = "3.1.1";
@@ -860,14 +744,14 @@ let
 
     episcina_1_1_0 = callPackage
       (
-        {  buildHex, gproc_0_3_1 }:
+        { buildHex, gproc_0_3_1 }:
           buildHex {
             name = "episcina";
             version = "1.1.0";
             sha256 =
               "16238717bfbc8cb226342f6b098bb1fafb48c7547265a10ad3e6e83899abc46f";
 
-            erlangDeps = [ gproc_0_3_1 ];
+            erlangDeps  = [ gproc_0_3_1 ];
 
             meta = {
               description = "Erlang Connection Pool";
@@ -880,7 +764,7 @@ let
 
     eql_0_1_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "eql";
             version = "0.1.2";
@@ -899,7 +783,7 @@ let
 
     eredis_1_0_8 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "eredis";
             version = "1.0.8";
@@ -916,30 +800,9 @@ let
 
     eredis = eredis_1_0_8;
 
-    erlang_lua_0_1_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "erlang_lua";
-            version = "0.1.0";
-            sha256 =
-              "4376a57f86e43ae1d687dca8b6c7c7f692b95d30091a9550636328358026e6eb";
-            compilePort = true;
-
-            meta = {
-              longDescription = ''Erlang-lua hex package, using Erlang's Port
-                                and C Node to run Lua VM as an external Node'';
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/rtraschke/erlang-lua";
-            };
-          }
-      ) {};
-
-    erlang_lua = erlang_lua_0_1_0;
-
     erlang_term_1_4_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlang_term";
             version = "1.4.0";
@@ -956,7 +819,7 @@ let
 
     erlang_term_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlang_term";
             version = "1.5.1";
@@ -975,7 +838,7 @@ let
 
     erlang_version_0_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlang_version";
             version = "0.2.0";
@@ -992,36 +855,16 @@ let
 
     erlang_version = erlang_version_0_2_0;
 
-    erlaudio_0_2_3 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "erlaudio";
-            version = "0.2.3";
-            sha256 =
-              "cb9efb0ce80faae003ab39f8cc2d3fccbb4bd1c8f5f525aea392f28662517032";
-            compilePort = true;
-
-            meta = {
-              description = "Erlang audio bindings to portaudio";
-              license = stdenv.lib.licenses.apsl20;
-              homepage = "https://github.com/asonge/erlaudio";
-            };
-          }
-      ) {};
-
-    erlaudio = erlaudio_0_2_3;
-
     erlcloud_0_11_0 = callPackage
       (
-        {  buildHex, jsx_2_6_2, lhttpc_1_3_0, meck_0_8_3 }:
+        { buildHex, jsx_2_6_2, lhttpc_1_3_0, meck_0_8_3 }:
           buildHex {
             name = "erlcloud";
             version = "0.11.0";
             sha256 =
               "ca9876dab57ed8fb5fb75ab6ce11e59a346387d357d7a038a2e18d1d31a30716";
 
-            erlangDeps = [ jsx_2_6_2 lhttpc_1_3_0 meck_0_8_3 ];
+            erlangDeps  = [ jsx_2_6_2 lhttpc_1_3_0 meck_0_8_3 ];
 
             meta = {
               description = "Cloud Computing library for erlang";
@@ -1033,14 +876,14 @@ let
 
     erlcloud_0_12_0 = callPackage
       (
-        {  buildHex, jsx_2_7_2, lhttpc_1_3_0, meck_0_8_3 }:
+        { buildHex, jsx_2_7_2, lhttpc_1_3_0, meck_0_8_3 }:
           buildHex {
             name = "erlcloud";
             version = "0.12.0";
             sha256 =
               "2ff2631a4e405a645cedf2713ec66728023e93ac80ed47035554a7d6205d412d";
 
-            erlangDeps = [ jsx_2_7_2 lhttpc_1_3_0 meck_0_8_3 ];
+            erlangDeps  = [ jsx_2_7_2 lhttpc_1_3_0 meck_0_8_3 ];
 
             meta = {
               description = "Cloud Computing library for erlang";
@@ -1054,7 +897,7 @@ let
 
     erldn_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erldn";
             version = "1.0.2";
@@ -1074,13 +917,13 @@ let
 
     erlexec_1_0_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlexec";
             version = "1.0.1";
             sha256 =
               "eb1e11f16288db4ea35af08503eabf1250d5540c1e8bd35ba04312f5f703e14f";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               description = "OS Process Manager";
@@ -1094,13 +937,13 @@ let
 
     erlsh_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlsh";
             version = "0.1.0";
             sha256 =
               "94ef1492dd59fef211f01ffd40c47b6e51c0f59e2a3d0739366e4890961332d9";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               longDescription = ''Family of functions and ports involving
@@ -1115,7 +958,7 @@ let
 
     erlsom_1_2_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlsom";
             version = "1.2.1";
@@ -1133,14 +976,14 @@ let
 
     erlware_commons_0_18_0 = callPackage
       (
-        {  buildHex, cf_0_2_1 }:
+        { buildHex, cf_0_2_1 }:
           buildHex {
             name = "erlware_commons";
             version = "0.18.0";
             sha256 =
               "e71dda7cd5dcf34c9d07255d49c67e1d229dd230c101fdb996820bcdb5b03c49";
 
-            erlangDeps = [ cf_0_2_1 ];
+            erlangDeps  = [ cf_0_2_1 ];
 
             meta = {
               description = "Additional standard library for Erlang";
@@ -1154,7 +997,7 @@ let
 
     erlzk_0_6_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "erlzk";
             version = "0.6.1";
@@ -1173,7 +1016,7 @@ let
 
     esel_0_1_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "esel";
             version = "0.1.2";
@@ -1191,13 +1034,13 @@ let
 
     esqlite_0_2_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "esqlite";
             version = "0.2.1";
             sha256 =
               "79f2d1d05e6e29e50228af794dac8900ce47dd60bc11fbf1279f924f83752689";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               description = "A Sqlite3 NIF";
@@ -1211,7 +1054,7 @@ let
 
     eunit_formatters_0_3_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "eunit_formatters";
             version = "0.3.1";
@@ -1228,37 +1071,15 @@ let
 
     eunit_formatters = eunit_formatters_0_3_1;
 
-    ex_bitcask_0_1_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "ex_bitcask";
-            version = "0.1.0";
-            sha256 =
-              "dc771229aae3c07c31a5523303f0c4dbe3c700d5025a09dfcca9cc357222c463";
-            compilePort = true;
-
-            meta = {
-              longDescription = ''Elixir wrapper of Basho's Bitcask Key/Value
-                                store. Bitcask as a Log-Structured Hash Table
-                                for Fast Key/Value Data. '';
-              license = stdenv.lib.licenses.asl20;
-              homepage = "https://github.com/JonGretar/ExBitcask";
-            };
-          }
-      ) {};
-
-    ex_bitcask = ex_bitcask_0_1_0;
-
     exec_1_0_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "exec";
             version = "1.0.1";
             sha256 =
               "87c7ef2dea2bb503bb0eec8cb34776172999aecc6e12d90f7629796a7a3ccb1f";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               description = "OS Process Manager";
@@ -1272,7 +1093,7 @@ let
 
     exmerl_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "exmerl";
             version = "0.1.1";
@@ -1291,30 +1112,32 @@ let
 
     exmerl = exmerl_0_1_1;
 
-    fast_xml_1_1_2 = callPackage
+    fast_tls_1_0_0 = callPackage
       (
-        {  buildHex, p1_utils_1_0_1 }:
+        { buildHex, p1_utils_1_0_3 }:
           buildHex {
-            name = "fast_xml";
-            version = "1.1.2";
+            name = "fast_tls";
+            version = "1.0.0";
             sha256 =
-              "becac16805254bc8399558f0eb5d3ed733a1e3c0c511d9c7e95244f43626f9bf";
-            compilePort = true;
-            erlangDeps = [ p1_utils_1_0_1 ];
+              "b782a40436da81e252f562528a0606bb01b70d76f0440fa52e28c9017a39af46";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
 
             meta = {
-              description = "Fast Expat based Erlang XML parsing library";
+              description =
+                "TLS / SSL OpenSSL-based native driver for Erlang / Elixir";
               license = stdenv.lib.licenses.asl20;
-              homepage = "https://github.com/processone/fast_xml";
+              homepage = "https://github.com/processone/fast_tls";
             };
           }
       ) {};
 
-    fast_xml = fast_xml_1_1_2;
+    fast_tls = fast_tls_1_0_0;
 
     feeder_2_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "feeder";
             version = "2.0.0";
@@ -1334,7 +1157,7 @@ let
 
     fn_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "fn";
             version = "1.0.0";
@@ -1353,14 +1176,14 @@ let
 
     folsom_0_8_3 = callPackage
       (
-        {  buildHex, bear_0_8_3 }:
+        { buildHex, bear_0_8_3 }:
           buildHex {
             name = "folsom";
             version = "0.8.3";
             sha256 =
               "afaa1ea4cd2a10a32242ac5d76fa7b17e98d202883859136b791d9a383b26820";
 
-            erlangDeps = [ bear_0_8_3 ];
+            erlangDeps  = [ bear_0_8_3 ];
 
             meta = {
               description = "Erlang based metrics system";
@@ -1373,14 +1196,14 @@ let
 
     folsomite_1_2_8 = callPackage
       (
-        {  buildHex, folsom_0_8_3 }:
+        { buildHex, folsom_0_8_3 }:
           buildHex {
             name = "folsomite";
             version = "1.2.8";
             sha256 =
               "9ce64603cdffb8ad55e950142146b3fe05533020906a81aa9c2f524635d813dc";
 
-            erlangDeps = [ folsom_0_8_3 ];
+            erlangDeps  = [ folsom_0_8_3 ];
 
             meta = {
               description = "Blow up your Graphite server with Folsom metrics";
@@ -1391,15 +1214,32 @@ let
 
     folsomite = folsomite_1_2_8;
 
+    fqc_0_1_5 = callPackage
+      (
+        { buildHex }:
+          buildHex {
+            name = "fqc";
+            version = "0.1.5";
+            sha256 =
+              "47536dec351a12e1cbe0bc3b52bfff3b0690b0aec660472b5cf49f812eb9aa4f";
+
+            meta = {
+              description = "FiFo EQC helper";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/project-fifo/fqc";
+            };
+          }
+      ) {};
+
     fs_0_9_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "fs";
             version = "0.9.2";
             sha256 =
               "9a00246e8af58cdf465ae7c48fd6fd7ba2e43300413dfcc25447ecd3bf76f0c1";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               description = "Erlang FileSystem Listener";
@@ -1413,7 +1253,7 @@ let
 
     fuse_2_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "fuse";
             version = "2.0.0";
@@ -1431,7 +1271,7 @@ let
 
     gen_listener_tcp_0_3_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "gen_listener_tcp";
             version = "0.3.2";
@@ -1450,7 +1290,7 @@ let
 
     gen_smtp_0_9_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "gen_smtp";
             version = "0.9.0";
@@ -1471,7 +1311,7 @@ let
 
     getopt_0_8_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "getopt";
             version = "0.8.2";
@@ -1490,7 +1330,7 @@ let
 
     goldrush_0_1_7 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "goldrush";
             version = "0.1.7";
@@ -1511,7 +1351,7 @@ let
 
     gproc_0_3_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "gproc";
             version = "0.3.1";
@@ -1543,7 +1383,7 @@ let
 
     gproc_0_5_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "gproc";
             version = "0.5.0";
@@ -1577,7 +1417,7 @@ let
 
     gurka_0_1_7 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "gurka";
             version = "0.1.7";
@@ -1608,12 +1448,12 @@ let
             sha256 =
               "c8ab2436556d6bce7e85a85adec67f6abeb8c7508668a3e29750be3c4bf4e3a8";
 
-            erlangDeps = [
-                           certifi_0_1_1
-                           idna_1_0_2
-                           mimerl_1_0_0
-                           ssl_verify_hostname_1_0_5
-                         ];
+            erlangDeps  = [
+                            certifi_0_1_1
+                            idna_1_0_2
+                            mimerl_1_0_0
+                            ssl_verify_hostname_1_0_5
+                          ];
 
             meta = {
               description = "simple HTTP client";
@@ -1623,9 +1463,41 @@ let
           }
       ) {};
 
+    hackney_1_4_8 = callPackage
+      (
+        {
+          buildHex,
+          certifi_0_3_0,
+          idna_1_0_3,
+          mimerl_1_0_2,
+          ssl_verify_hostname_1_0_5
+        }:
+          buildHex {
+            name = "hackney";
+            version = "1.4.8";
+            sha256 =
+              "7c212741163cec1cf38ad845bd71efafcbf81365cf754c978b354c6375dc4da2";
+
+            erlangDeps  = [
+                            certifi_0_3_0
+                            idna_1_0_3
+                            mimerl_1_0_2
+                            ssl_verify_hostname_1_0_5
+                          ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          }
+      ) {};
+
+    hackney = hackney_1_4_8;
+
     hamcrest_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "hamcrest";
             version = "0.1.1";
@@ -1644,7 +1516,7 @@ let
 
     hlc_2_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "hlc";
             version = "2.0.0";
@@ -1663,7 +1535,7 @@ let
 
     hooks_1_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "hooks";
             version = "1.1.1";
@@ -1682,7 +1554,7 @@ let
 
     http_signature_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "http_signature";
             version = "1.1.0";
@@ -1703,7 +1575,7 @@ let
 
     ibrowse_4_2_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ibrowse";
             version = "4.2.2";
@@ -1722,7 +1594,7 @@ let
 
     idna_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "idna";
             version = "1.0.2";
@@ -1739,7 +1611,7 @@ let
 
     idna_1_0_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "idna";
             version = "1.0.3";
@@ -1756,14 +1628,14 @@ let
 
     idna = idna_1_0_3;
 
-    inaka_aleppo_0_9_5 = callPackage
+    inaka_aleppo_0_9_6 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "inaka_aleppo";
-            version = "0.9.5";
+            version = "0.9.6";
             sha256 =
-              "58e65aa708a0aae828ad8072f521edca8ce19fc3373223180a348a27a3722eb4";
+              "774171dc84a300f63a15fe732773edf535d7414286890e961e754f1f794dbc85";
 
             meta = {
               description = "Aleppo: ALternative Erlang Pre-ProcessOr";
@@ -1773,11 +1645,11 @@ let
           }
       ) {};
 
-    inaka_aleppo = inaka_aleppo_0_9_5;
+    inaka_aleppo = inaka_aleppo_0_9_6;
 
     inaka_mixer_0_1_5 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "inaka_mixer";
             version = "0.1.5";
@@ -1794,28 +1666,29 @@ let
 
     inaka_mixer = inaka_mixer_0_1_5;
 
-    jc_1_0_4 = callPackage
+    jiffy_0_14_7 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
-            name = "jc";
-            version = "1.0.4";
+            name = "jiffy";
+            version = "0.14.7";
             sha256 =
-              "8bcfe202084109fc80fcf521e630466fc53cbb909aff4283bed43252664023df";
+              "2b3b0f7976dae9c8266036e0d7e0398b64ac5207e3beee4c57896e44b2c17e97";
+            compilePorts = true;
 
             meta = {
-              description = "A simple, distributed, in-memory caching system";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/jr0senblum/jc";
+              description = "JSON Decoder/Encoder.";
+              license = with stdenv.lib.licenses; [ mit bsd3 ];
+              homepage = "https://github.com/davisp/jiffy";
             };
           }
       ) {};
 
-    jc = jc_1_0_4;
+    jiffy = jiffy_0_14_7;
 
     jsone_1_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsone";
             version = "1.2.0";
@@ -1834,7 +1707,7 @@ let
 
     jsx_1_4_5 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "1.4.5";
@@ -1853,7 +1726,7 @@ let
 
     jsx_2_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "2.2.0";
@@ -1872,7 +1745,7 @@ let
 
     jsx_2_6_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "2.6.2";
@@ -1891,7 +1764,7 @@ let
 
     jsx_2_7_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "2.7.1";
@@ -1910,7 +1783,7 @@ let
 
     jsx_2_7_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "2.7.2";
@@ -1929,7 +1802,7 @@ let
 
     jsx_2_8_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsx";
             version = "2.8.0";
@@ -1950,7 +1823,7 @@ let
 
     jsxd_0_1_10 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jsxd";
             version = "0.1.10";
@@ -1970,7 +1843,7 @@ let
 
     jwalk_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "jwalk";
             version = "1.1.0";
@@ -1991,14 +1864,14 @@ let
 
     jwt_0_1_1 = callPackage
       (
-        {  buildHex, base64url_0_0_1, jsx_2_8_0 }:
+        { buildHex, base64url_0_0_1, jsx_2_8_0 }:
           buildHex {
             name = "jwt";
             version = "0.1.1";
             sha256 =
               "abcff4a2a42af2b7b7bdf55eeb2b73ce2e3bef760750004e74bc5835d64d2188";
 
-            erlangDeps = [ base64url_0_0_1 jsx_2_8_0 ];
+            erlangDeps  = [ base64url_0_0_1 jsx_2_8_0 ];
 
             meta = {
               description = "Erlang JWT library";
@@ -2012,7 +1885,7 @@ let
 
     key2value_1_4_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "key2value";
             version = "1.4.0";
@@ -2029,7 +1902,7 @@ let
 
     key2value_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "key2value";
             version = "1.5.1";
@@ -2048,7 +1921,7 @@ let
 
     keys1value_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "keys1value";
             version = "1.5.1";
@@ -2067,14 +1940,14 @@ let
 
     lager_3_0_1 = callPackage
       (
-        {  buildHex, goldrush_0_1_7 }:
+        { buildHex, goldrush_0_1_7 }:
           buildHex {
             name = "lager";
             version = "3.0.1";
             sha256 =
               "d32c9233105b72dc5c1f6a8fe9a33cc205ecccc359c4449950060cee5a329e35";
 
-            erlangDeps = [ goldrush_0_1_7 ];
+            erlangDeps  = [ goldrush_0_1_7 ];
 
             meta = {
               description = "Erlang logging framework";
@@ -2086,14 +1959,14 @@ let
 
     lager_3_0_2 = callPackage
       (
-        {  buildHex, goldrush_0_1_7 }:
+        { buildHex, goldrush_0_1_7 }:
           buildHex {
             name = "lager";
             version = "3.0.2";
             sha256 =
               "527f3b233e01b6cb68780c14ef675ed08ec02247dc029cacecbb56c78dfca100";
 
-            erlangDeps = [ goldrush_0_1_7 ];
+            erlangDeps  = [ goldrush_0_1_7 ];
 
             meta = {
               description = "Erlang logging framework";
@@ -2105,10 +1978,28 @@ let
 
     lager = lager_3_0_2;
 
+    lasse_1_1_0 = callPackage
+      (
+        { buildHex }:
+          buildHex {
+            name = "lasse";
+            version = "1.1.0";
+            sha256 =
+              "53e70ea9031f7583331a9f9bdbb29da933e591e5c4cce521b4bf85c68e7f3385";
+
+            meta = {
+              description = "Lasse: Server-Sent Event handler for Cowboy.";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/inaka/lasse";
+            };
+          }
+      ) {};
+
+    lasse = lasse_1_1_0;
 
     lhttpc_1_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "lhttpc";
             version = "1.3.0";
@@ -2125,9 +2016,28 @@ let
 
     lhttpc = lhttpc_1_3_0;
 
+    libsnarlmatch_0_1_5 = callPackage
+      (
+        { buildHex, fqc_0_1_5 }:
+          buildHex {
+            name = "libsnarlmatch";
+            version = "0.1.5";
+            sha256 =
+              "11410122ca7a0685c4a7df1795d7f5a1e7bf9c5f17096414402fd9d1f0e1ac04";
+
+            erlangDeps  = [ fqc_0_1_5 ];
+
+            meta = {
+              description = "permission matcher library";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/project-fifo/libsnarlmatch";
+            };
+          }
+      ) {};
+
     libsnarlmatch_0_1_7 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "libsnarlmatch";
             version = "0.1.7";
@@ -2146,7 +2056,7 @@ let
 
     lru_1_3_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "lru";
             version = "1.3.1";
@@ -2165,13 +2075,13 @@ let
 
     lz4_0_2_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "lz4";
             version = "0.2.2";
             sha256 =
               "a59522221e7cdfe3792bf8b3bb21cfe7ac657790e5826201fa2c5d0bc7484a2d";
-            compilePort = true;
+            compilePorts = true;
 
             meta = {
               description = "LZ4 bindings for Erlang";
@@ -2183,29 +2093,9 @@ let
 
     lz4 = lz4_0_2_2;
 
-    mcrypt_0_1_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "mcrypt";
-            version = "0.1.0";
-            sha256 =
-              "508a35ba255190f80309dcabf9c81c88b86b9ec13af180627ad51b8e5cf2a4cd";
-            compilePort = true;
-
-            meta = {
-              description = "NIF wrapper around libmcrypt.";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/system76/elixir-mcrypt";
-            };
-          }
-      ) {};
-
-    mcrypt = mcrypt_0_1_0;
-
     mdns_server_0_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mdns_server";
             version = "0.2.0";
@@ -2224,14 +2114,14 @@ let
 
     mdns_server_lib_0_2_3 = callPackage
       (
-        {  buildHex, lager_3_0_2, mdns_server_0_2_0, ranch_1_1_0 }:
+        { buildHex, lager_3_0_2, mdns_server_0_2_0, ranch_1_1_0 }:
           buildHex {
             name = "mdns_server_lib";
             version = "0.2.3";
             sha256 =
               "078775ccea5d768095716ca6bd82f657601203352495d9726f4cc080c8c07695";
 
-            erlangDeps = [ lager_3_0_2 mdns_server_0_2_0 ranch_1_1_0 ];
+            erlangDeps  = [ lager_3_0_2 mdns_server_0_2_0 ranch_1_1_0 ];
 
             meta = {
               description =
@@ -2246,7 +2136,7 @@ let
 
     meck_0_8_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "meck";
             version = "0.8.3";
@@ -2263,7 +2153,7 @@ let
 
     meck_0_8_4 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "meck";
             version = "0.8.4";
@@ -2282,7 +2172,7 @@ let
 
     metrics_0_2_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "metrics";
             version = "0.2.1";
@@ -2302,7 +2192,7 @@ let
 
     mimerl_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mimerl";
             version = "1.0.0";
@@ -2319,7 +2209,7 @@ let
 
     mimerl_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mimerl";
             version = "1.0.2";
@@ -2336,7 +2226,7 @@ let
 
     mimerl_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mimerl";
             version = "1.1.0";
@@ -2355,7 +2245,7 @@ let
 
     mochiweb_2_12_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mochiweb";
             version = "2.12.2";
@@ -2374,9 +2264,28 @@ let
 
     mochiweb = mochiweb_2_12_2;
 
+    msgpack_0_4_0 = callPackage
+      (
+        { buildHex }:
+          buildHex {
+            name = "msgpack";
+            version = "0.4.0";
+            sha256 =
+              "cb69184b254bcddfd0b3b813fa9ffc87dd4642ad026bb8117e2384b55239eae4";
+
+            meta = {
+              description = "MessagePack serializer/deserializer";
+              license = stdenv.lib.licenses.free;
+              homepage = "http://msgpack.org";
+            };
+          }
+      ) {};
+
+    msgpack = msgpack_0_4_0;
+
     mtx_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "mtx";
             version = "1.0.0";
@@ -2393,29 +2302,9 @@ let
 
     mtx = mtx_1_0_0;
 
-    nacl_0_3_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "nacl";
-            version = "0.3.0";
-            sha256 =
-              "83a626d0ddd17a9c9528aa57a79e0e19746a42def007bc48c4984f0905098a7b";
-            compilePort = true;
-
-            meta = {
-              description = "Erlang-NaCl hex package";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/tonyg/erlang-nacl";
-            };
-          }
-      ) {};
-
-    nacl = nacl_0_3_0;
-
     neotoma_1_7_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "neotoma";
             version = "1.7.3";
@@ -2432,37 +2321,17 @@ let
 
     neotoma = neotoma_1_7_3;
 
-    observer_cli_1_0_3 = callPackage
-      (
-        {  buildHex, recon_2_2_1 }:
-          buildHex {
-            name = "observer_cli";
-            version = "1.0.3";
-            sha256 =
-              "18e5d9aa5412ec063cf9719bcfe73bf990c5fed5c9a3c8422c2b5d9529fc8b0d";
-
-            erlangDeps = [ recon_2_2_1 ];
-
-            meta = {
-              description = "Visualize Erlang Nodes On The Command Line";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/zhongwencool/observer_cli";
-            };
-          }
-      ) {};
-
-    observer_cli = observer_cli_1_0_3;
-
     p1_stringprep_1_0_0 = callPackage
       (
-        {  buildHex, p1_utils_1_0_1 }:
+        { buildHex, p1_utils_1_0_1 }:
           buildHex {
             name = "p1_stringprep";
             version = "1.0.0";
             sha256 =
               "2a9ce90acb64089f0a34cc592690b398830a5b6fd3c8a84689af5d2feb85d876";
-            compilePort = true;
-            erlangDeps = [ p1_utils_1_0_1 ];
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_1 ];
 
             meta = {
               description = "Fast Stringprep Erlang / Elixir implementation";
@@ -2476,7 +2345,7 @@ let
 
     p1_utils_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "p1_utils";
             version = "1.0.0";
@@ -2493,7 +2362,7 @@ let
 
     p1_utils_1_0_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "p1_utils";
             version = "1.0.1";
@@ -2510,7 +2379,7 @@ let
 
     p1_utils_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "p1_utils";
             version = "1.0.2";
@@ -2527,7 +2396,7 @@ let
 
     p1_utils_1_0_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "p1_utils";
             version = "1.0.3";
@@ -2544,31 +2413,9 @@ let
 
     p1_utils = p1_utils_1_0_3;
 
-    p1_xml_1_1_1 = callPackage
-      (
-        {  buildHex, p1_utils_1_0_0 }:
-          buildHex {
-            name = "p1_xml";
-            version = "1.1.1";
-            sha256 =
-              "ab68956163cc5ff8c749c503507a36c543841259e78c58a2bbe0ebe76a0b7ce3";
-            compilePort = true;
-            erlangDeps = [ p1_utils_1_0_0 ];
-
-            meta = {
-              description =
-                "XML parsing library. Now obsolete. Use fast_xml instead";
-              license = stdenv.lib.licenses.asl20;
-              homepage = "https://github.com/processone/xml";
-            };
-          }
-      ) {};
-
-    p1_xml = p1_xml_1_1_1;
-
     pc_1_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "pc";
             version = "1.2.0";
@@ -2585,29 +2432,9 @@ let
 
     pc = pc_1_2_0;
 
-    picosat_0_1_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "picosat";
-            version = "0.1.0";
-            sha256 =
-              "d9bfa31240906306a6dae6bdd6fb1cb452e9462a391efa63017b17b2877cab51";
-            compilePort = true;
-
-            meta = {
-              description = "Erlang bindings for PicoSAT";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/tsloughter/picosat";
-            };
-          }
-      ) {};
-
-    picosat = picosat_0_1_0;
-
     png_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "png";
             version = "0.1.1";
@@ -2629,7 +2456,7 @@ let
 
     poolboy_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "poolboy";
             version = "1.5.1";
@@ -2648,7 +2475,7 @@ let
 
     pooler_1_5_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "pooler";
             version = "1.5.0";
@@ -2667,7 +2494,7 @@ let
 
     pot_0_9_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "pot";
             version = "0.9.3";
@@ -2685,7 +2512,7 @@ let
 
     pqueue_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "pqueue";
             version = "1.5.1";
@@ -2704,7 +2531,7 @@ let
 
     proper_1_1_1_beta = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "proper";
             version = "1.1.1-beta";
@@ -2724,14 +2551,14 @@ let
 
     providers_1_6_0 = callPackage
       (
-        {  buildHex, getopt_0_8_2 }:
+        { buildHex, getopt_0_8_2 }:
           buildHex {
             name = "providers";
             version = "1.6.0";
             sha256 =
               "0f6876529a613d34224de8c61d3660388eb981142360f2699486d8536050ce2f";
 
-            erlangDeps = [ getopt_0_8_2 ];
+            erlangDeps  = [ getopt_0_8_2 ];
 
             meta = {
               description = "Providers provider.";
@@ -2745,7 +2572,7 @@ let
 
     quickrand_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "quickrand";
             version = "1.5.1";
@@ -2767,14 +2594,14 @@ let
 
     quintana_0_2_0 = callPackage
       (
-        {  buildHex, folsom_0_8_3 }:
+        { buildHex, folsom_0_8_3 }:
           buildHex {
             name = "quintana";
             version = "0.2.0";
             sha256 =
               "0646fe332ca3415ca6b0b273b4a5689ec902b9f9004ca62229ded00bd5f64cda";
 
-            erlangDeps = [ folsom_0_8_3 ];
+            erlangDeps  = [ folsom_0_8_3 ];
 
             meta = {
               description = "Wrapper around some Folsom functions";
@@ -2785,14 +2612,14 @@ let
 
     quintana_0_2_1 = callPackage
       (
-        {  buildHex, folsom_0_8_3 }:
+        { buildHex, folsom_0_8_3 }:
           buildHex {
             name = "quintana";
             version = "0.2.1";
             sha256 =
               "d4683eb33c71f6cab3b17b896b4fa9180f17a0a8b086440bfe0c5675182f0194";
 
-            erlangDeps = [ folsom_0_8_3 ];
+            erlangDeps  = [ folsom_0_8_3 ];
 
             meta = {
               description = "Wrapper around some Folsom functions";
@@ -2805,7 +2632,7 @@ let
 
     rabbit_common_3_5_6 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rabbit_common";
             version = "3.5.6";
@@ -2826,7 +2653,7 @@ let
 
     ranch_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ranch";
             version = "1.1.0";
@@ -2843,7 +2670,7 @@ let
 
     ranch_1_2_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ranch";
             version = "1.2.0";
@@ -2862,7 +2689,7 @@ let
 
     ratx_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ratx";
             version = "0.1.0";
@@ -2883,7 +2710,7 @@ let
 
     rebar3_asn1_compiler_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar3_asn1_compiler";
             version = "1.0.0";
@@ -2900,30 +2727,9 @@ let
 
     rebar3_asn1_compiler = rebar3_asn1_compiler_1_0_0;
 
-    rebar3_auto_0_3_0 = callPackage
-      (
-        {  buildHex, enotify_0_1_0 }:
-          buildHex {
-            name = "rebar3_auto";
-            version = "0.3.0";
-            sha256 =
-              "9fcca62411b0b7680426bd911002c0769690aef3838829583ffa4547fd5038b5";
-
-            erlangDeps = [ enotify_0_1_0 ];
-
-            meta = {
-              description = "Rebar3 plugin for auto compiling on changes";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/tsloughter/rebar3_auto";
-            };
-          }
-      ) {};
-
-    rebar3_auto = rebar3_auto_0_3_0;
-
     rebar3_diameter_compiler_0_3_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar3_diameter_compiler";
             version = "0.3.1";
@@ -2941,14 +2747,14 @@ let
 
     rebar3_diameter_compiler = rebar3_diameter_compiler_0_3_1;
 
-    rebar3_hex_1_12_0 = callPackage
+    rebar3_hex_1_14_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar3_hex";
-            version = "1.12.0";
+            version = "1.14.0";
             sha256 =
-              "45467e93ae8d776c6038fdaeaffbc55d8f2f097f300a54dab9b81c6d1cf21f73";
+              "e655ba352835654d41b8077695415792a0de01f3200aa1ce0c8458f785ec2311";
 
             meta = {
               description = "Hex.pm plugin for rebar3";
@@ -2958,11 +2764,11 @@ let
           }
       ) {};
 
-    rebar3_hex = rebar3_hex_1_12_0;
+    rebar3_hex = rebar3_hex_1_14_0;
 
     rebar3_idl_compiler_0_3_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar3_idl_compiler";
             version = "0.3.0";
@@ -2979,37 +2785,16 @@ let
 
     rebar3_idl_compiler = rebar3_idl_compiler_0_3_0;
 
-    rebar3_live_0_1_3 = callPackage
-      (
-        {  buildHex, enotify_0_1_0 }:
-          buildHex {
-            name = "rebar3_live";
-            version = "0.1.3";
-            sha256 =
-              "d9ee2ff022fc73ac94f206c13ff8aa7591a536704f49c4cbacabf37d181a4391";
-
-            erlangDeps = [ enotify_0_1_0 ];
-
-            meta = {
-              description = "Rebar3 live plugin";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/pvmart/rebar3_live";
-            };
-          }
-      ) {};
-
-    rebar3_live = rebar3_live_0_1_3;
-
     rebar3_neotoma_plugin_0_2_0 = callPackage
       (
-        {  buildHex, neotoma_1_7_3 }:
+        { buildHex, neotoma_1_7_3 }:
           buildHex {
             name = "rebar3_neotoma_plugin";
             version = "0.2.0";
             sha256 =
               "c0ebbdb08c017cac90c7d3310a9bd4a5088a46abd4e2fef9e9a9805a657396b8";
 
-            erlangDeps = [ neotoma_1_7_3 ];
+            erlangDeps  = [ neotoma_1_7_3 ];
 
             meta = {
               description = "Neotoma rebar plugin";
@@ -3024,7 +2809,7 @@ let
 
     rebar3_proper_plugin_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar3_proper_plugin";
             version = "0.1.0";
@@ -3040,29 +2825,9 @@ let
 
     rebar3_proper_plugin = rebar3_proper_plugin_0_1_0;
 
-    rebar3_run_0_2_0 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "rebar3_run";
-            version = "0.2.0";
-            sha256 =
-              "321e0647893957d1bb05a88d940a8a3b9129097d63529e13f815c4857bf29497";
-            compilePort = true;
-
-            meta = {
-              description = "A rebar plugin";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/tsloughter/rebar3_run";
-            };
-          }
-      ) {};
-
-    rebar3_run = rebar3_run_0_2_0;
-
     rebar_alias_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar_alias";
             version = "0.1.0";
@@ -3080,7 +2845,7 @@ let
 
     rebar_erl_vsn_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "rebar_erl_vsn";
             version = "0.1.0";
@@ -3098,7 +2863,7 @@ let
 
     recon_2_2_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "recon";
             version = "2.2.1";
@@ -3119,7 +2884,7 @@ let
 
     redo_2_0_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "redo";
             version = "2.0.1";
@@ -3138,7 +2903,7 @@ let
 
     relflow_1_0_4 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "relflow";
             version = "1.0.4";
@@ -3156,7 +2921,7 @@ let
 
     reltool_util_1_4_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "reltool_util";
             version = "1.4.0";
@@ -3173,7 +2938,7 @@ let
 
     reltool_util_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "reltool_util";
             version = "1.5.1";
@@ -3190,7 +2955,7 @@ let
 
     reltool_util = reltool_util_1_5_1;
 
-    relx_3_11_0 = callPackage
+    relx_3_13_0 = callPackage
       (
         {
           buildHex,
@@ -3202,17 +2967,17 @@ let
         }:
           buildHex {
             name = "relx";
-            version = "3.11.0";
+            version = "3.13.0";
             sha256 =
-              "cf212af96003417ff710e0c9df46034ae14c880a74919df91563e4f149d5c798";
+              "1ccadc6c9c6883807be0a6250411d2c299c532928e0a6d07db812400a2303ec1";
 
-            erlangDeps = [
-                           bbmustache_1_0_4
-                           cf_0_2_1
-                           erlware_commons_0_18_0
-                           getopt_0_8_2
-                           providers_1_6_0
-                         ];
+            erlangDeps  = [
+                            bbmustache_1_0_4
+                            cf_0_2_1
+                            erlware_commons_0_18_0
+                            getopt_0_8_2
+                            providers_1_6_0
+                          ];
 
             meta = {
               description = "Release assembler for Erlang/OTP Releases";
@@ -3222,11 +2987,11 @@ let
           }
       ) {};
 
-    relx = relx_3_11_0;
+    relx = relx_3_13_0;
 
     reup_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "reup";
             version = "0.1.0";
@@ -3245,7 +3010,7 @@ let
 
     savory_0_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "savory";
             version = "0.0.2";
@@ -3266,7 +3031,7 @@ let
 
     sbroker_0_7_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "sbroker";
             version = "0.7.0";
@@ -3286,7 +3051,7 @@ let
 
     serial_0_1_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "serial";
             version = "0.1.2";
@@ -3303,31 +3068,9 @@ let
 
     serial = serial_0_1_2;
 
-    sfmt_0_10_1 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "sfmt";
-            version = "0.10.1";
-            sha256 =
-              "5f9d8206762306743986a3f35602bb40b35bcff68752a8ae12519c0b7c25fab2";
-            compilePort = true;
-
-            meta = {
-              description =
-                "SIMD-oriented Fast Mersenne Twister (SFMT) for Erlang.
-";
-              license = stdenv.lib.licenses.free;
-              homepage = "https://github.com/jj1bdx/sfmt-erlang/";
-            };
-          }
-      ) {};
-
-    sfmt = sfmt_0_10_1;
-
     sidejob_2_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "sidejob";
             version = "2.0.0";
@@ -3357,29 +3100,9 @@ let
 
     sidejob = sidejob_2_0_0;
 
-    siphash_2_1_1 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "siphash";
-            version = "2.1.1";
-            sha256 =
-              "69f2a3b8acac101f7894ea80c15b29dbf7dfa55ea2800731cd5d04621cc22eee";
-            compilePort = true;
-
-            meta = {
-              description = "Elixir implementation of the SipHash hash family";
-              license = stdenv.lib.licenses.mit;
-              homepage = "https://github.com/zackehh/siphash-elixir";
-            };
-          }
-      ) {};
-
-    siphash = siphash_2_1_1;
-
     slp_0_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "slp";
             version = "0.0.2";
@@ -3400,7 +3123,7 @@ let
 
     smurf_0_1_3 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "smurf";
             version = "0.1.3";
@@ -3417,30 +3140,9 @@ let
 
     smurf = smurf_0_1_3;
 
-    snappy_1_1_1 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "snappy";
-            version = "1.1.1";
-            sha256 =
-              "7faed3ec6bcac363c2a6f09b4f000a12c8166b42b3bf70228d532f8afcfbcb6a";
-            compilePort = true;
-
-            meta = {
-              description =
-                "snappy compressor/decompressor Erlang NIF wrapper";
-              license = stdenv.lib.licenses.free;
-              homepage = "https://github.com/barrel-db/snappy";
-            };
-          }
-      ) {};
-
-    snappy = snappy_1_1_1;
-
     ssl_verify_hostname_1_0_5 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ssl_verify_hostname";
             version = "1.0.5";
@@ -3458,7 +3160,7 @@ let
 
     ssl_verify_hostname_1_0_6 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ssl_verify_hostname";
             version = "1.0.6";
@@ -3476,14 +3178,14 @@ let
 
     ssl_verify_hostname = ssl_verify_hostname_1_0_6;
 
-    strftimerl_0_1_0 = callPackage
+    strftimerl_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "strftimerl";
-            version = "0.1.0";
+            version = "0.1.1";
             sha256 =
-              "8c372b282b31f3de24ed1281d4974087421fc44a27d0f31b285ad97a9e6bb616";
+              "c09c7cd6a421bcbc1020c1440a2e73e312b852adbb3034d11f3dffa27d7953b1";
 
             meta = {
               description = "strftime formatting in erlang";
@@ -3493,11 +3195,32 @@ let
           }
       ) {};
 
-    strftimerl = strftimerl_0_1_0;
+    strftimerl = strftimerl_0_1_1;
+
+    stun_1_0_0 = callPackage
+      (
+        { buildHex, fast_tls_1_0_0, p1_utils_1_0_3 }:
+          buildHex {
+            name = "stun";
+            version = "1.0.0";
+            sha256 =
+              "4f18e1136ba35b92c808b705ca1ea711cf6251ccc12b3bc2148fd5056aab2a0d";
+
+            erlangDeps  = [ fast_tls_1_0_0 p1_utils_1_0_3 ];
+
+            meta = {
+              description = "STUN and TURN library for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/stun";
+            };
+          }
+      ) {};
+
+    stun = stun_1_0_0;
 
     supool_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "supool";
             version = "1.5.1";
@@ -3514,30 +3237,9 @@ let
 
     supool = supool_1_5_1;
 
-    syslog_1_0_2 = callPackage
-      (
-        {  buildHex }:
-          buildHex {
-            name = "syslog";
-            version = "1.0.2";
-            sha256 =
-              "ca158a84afe482f77cb4668383a6108f1e9190fcdf3035858f426b91b2021bf6";
-            compilePort = true;
-
-            meta = {
-              description =
-                "Erlang port driver for interacting with syslog via syslog";
-              license = stdenv.lib.licenses.bsd3;
-              homepage = "https://github.com/Vagabond/erlang-syslog";
-            };
-          }
-      ) {};
-
-    syslog = syslog_1_0_2;
-
     tea_crypto_1_0_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "tea_crypto";
             version = "1.0.0";
@@ -3557,7 +3259,7 @@ let
 
     termcap_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "termcap";
             version = "0.1.0";
@@ -3573,29 +3275,28 @@ let
 
     termcap = termcap_0_1_0;
 
-    tinymt_0_2_0 = callPackage
+    tinymt_0_3_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "tinymt";
-            version = "0.2.0";
+            version = "0.3.1";
             sha256 =
-              "1ab2b2bd4e02ccf3f83ca6b2429c41110adaf2068c727d37a2e27a0207eccfe0";
+              "9de8fcedf254661bc4aa550aac317e28be35d4a5d91adf3fa3689dfad6cc1e5a";
 
             meta = {
-              description = "Tiny Mersenne Twister (TinyMT) for Erlang
-";
+              description = "Tiny Mersenne Twister (TinyMT) for Erlang";
               license = stdenv.lib.licenses.free;
               homepage = "https://github.com/jj1bdx/tinymt-erlang/";
             };
           }
       ) {};
 
-    tinymt = tinymt_0_2_0;
+    tinymt = tinymt_0_3_1;
 
     trie_1_5_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "trie";
             version = "1.5.0";
@@ -3612,7 +3313,7 @@ let
 
     trie_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "trie";
             version = "1.5.1";
@@ -3631,7 +3332,7 @@ let
 
     tsuru_1_0_2 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "tsuru";
             version = "1.0.2";
@@ -3650,7 +3351,7 @@ let
 
     ui_0_1_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "ui";
             version = "0.1.1";
@@ -3668,7 +3369,7 @@ let
 
     uri_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "uri";
             version = "0.1.0";
@@ -3686,7 +3387,7 @@ let
 
     varpool_1_5_1 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "varpool";
             version = "1.5.1";
@@ -3705,7 +3406,7 @@ let
 
     weber_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "weber";
             version = "0.1.0";
@@ -3724,7 +3425,7 @@ let
 
     websocket_client_1_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "websocket_client";
             version = "1.1.0";
@@ -3743,7 +3444,7 @@ let
 
     worker_pool_1_0_4 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "worker_pool";
             version = "1.0.4";
@@ -3762,7 +3463,7 @@ let
 
     wpa_supplicant_0_1_0 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "wpa_supplicant";
             version = "0.1.0";
@@ -3784,14 +3485,14 @@ let
 
     wpa_supplicant = wpa_supplicant_0_1_0;
 
-    zipper_0_1_4 = callPackage
+    zipper_0_1_5 = callPackage
       (
-        {  buildHex }:
+        { buildHex }:
           buildHex {
             name = "zipper";
-            version = "0.1.4";
+            version = "0.1.5";
             sha256 =
-              "0037f29a5c5a96a9db49e9131f1071a48fcbd5959b74f1d8b6d22945a7ac46b9";
+              "7df5552f41169a8feb1a2e81e2753ec4e4debb7d48cdf1edc77037205782d547";
 
             meta = {
               description = "Generic Zipper Implementation for Erlang";
@@ -3801,7 +3502,7 @@ let
           }
       ) {};
 
-    zipper = zipper_0_1_4;
+    zipper = zipper_0_1_5;
 
   };
 in self
