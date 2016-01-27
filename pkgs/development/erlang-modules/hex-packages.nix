@@ -154,6 +154,30 @@
 
 let
   self = rec {
+
+
+    milliseconds_0_0_1 = callPackage
+      (
+        { buildHex }:
+          buildHex {
+            name = "milliseconds";
+            version = "0.0.1";
+            sha256 =
+              "6f82b9f47590e96ed90761d6eb331a9c11a40b68216d5e4867420899420035f0";
+
+            meta = {
+              longDescription = '' Simple library to work with milliseconds.
+                                Convert text to milliseconds: convert("2d")
+                                Convert milliseconds to text: convert(8640000)
+                                Calculate future time: future_time("6hrs") '';
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/davebryson/elixir_milliseconds";
+            };
+          }
+      ) {};
+
+    milliseconds = milliseconds_0_0_1;
+
     backoff_1_1_3 = callPackage
       (
 	{ buildHex }:
