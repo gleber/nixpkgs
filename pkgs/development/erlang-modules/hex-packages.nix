@@ -150,11 +150,10 @@
  * yomel_0_5_0
 
 */
-{ stdenv, callPackage }:
+{ stdenv, callPackage, overrides ? (self: super: {}) }:
 
 let
-  self = rec {
-
+  packages = self: rec {
 
     milliseconds_0_0_1 = callPackage
       (
@@ -3048,4 +3047,4 @@ let
     zipper = zipper_0_1_5;
     
   };
-in self
+in stdenv.lib.fix' (stdenv.lib.extends overrides packages)
