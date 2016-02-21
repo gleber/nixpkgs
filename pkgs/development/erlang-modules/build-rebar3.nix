@@ -42,6 +42,7 @@ let
     else setupHook;
 
     postPatch = ''
+      ${postPatch}
       rm -f rebar rebar3
     '';
 
