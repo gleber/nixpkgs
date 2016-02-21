@@ -150,7 +150,7 @@
  * yomel_0_5_0
 
 */
-{ stdenv, callPackage, overrides ? (self: super: {}) }:
+{ stdenv, pkgs, callPackage, overrides ? (self: super: {}) }:
 
 let
   packages = self: rec {

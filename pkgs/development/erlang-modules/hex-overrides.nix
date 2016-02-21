@@ -1,4 +1,4 @@
-{ stdenv, callPackage }:
+{ stdenv, callPackage, pkgs }:
 
 self: super: {
 }

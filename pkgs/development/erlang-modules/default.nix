@@ -5,12 +5,14 @@ let
     callPackage = pkgs.lib.callPackageWith (pkgs // self // hexPackages);
     hexOverrides = import ./hex-overrides.nix {
       inherit stdenv;
+      inherit pkgs;
       callPackage = self.callPackage;
     };
     hexPackages = import ./hex-packages.nix {
       inherit stdenv;
-      callPackage = self.callPackage;
+      inherit pkgs;
       overrides = hexOverrides;
+      callPackage = self.callPackage;
     };
 
     buildRebar3 = callPackage ./build-rebar3.nix {};
