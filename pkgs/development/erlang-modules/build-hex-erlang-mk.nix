@@ -1,4 +1,4 @@
-{ stdenv, buildRebar3, fetchHex }:
+{ stdenv, buildErlangMk, fetchHex }:
 
 { name, version, sha256
 , hexPkg ? name
@@ -6,7 +6,7 @@
 
 with stdenv.lib;
 
-buildRebar3 (attrs // {
+buildErlangMk (attrs // {
 
   src = fetchHex {
     pkg = hexPkg;

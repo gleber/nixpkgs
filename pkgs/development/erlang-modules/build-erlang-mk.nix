@@ -1,11 +1,11 @@
-{ stdenv, writeText, erlang, rebar3, openssl, libyaml, fetchHex, fetchFromGitHub,
+{ stdenv, writeText, erlang, elixir, rebar3, openssl, libyaml, fetchHex, fetchFromGitHub,
   tree,
   pc, buildEnv }:
 
 { name, version
 , src, appName ? name
 , setupHook ? null
-, buildInputs ? [], erlangDeps ? [], buildPlugins ? []
+, buildInputs ? [], erlangDeps ? []
 , postPatch ? ""
 , compilePorts ? false
 , installPhase ? null
@@ -15,8 +15,6 @@
 with stdenv.lib;
 
 let
-  ownPlugins = buildPlugins ++ (if compilePorts then [pc] else []);
-
   shell = drv: stdenv.mkDerivation {
     name = "interactive-shell-${drv.name}";
     buildInputs = [ drv ];
@@ -28,12 +26,8 @@ let
     inherit version;
     inherit erlangDeps;
 
-    buildInputs = unique (buildInputs ++ [ erlang rebar3 openssl libyaml tree ]);
-    propagatedBuildInputs = unique (erlangDeps ++ ownPlugins);
-
-    # The following are used by rebar3-nix-bootstrap
-    inherit compilePorts;
-    buildPlugins = ownPlugins;
+    buildInputs = unique (buildInputs ++ [ erlang elixir openssl libyaml tree ]);
+    propagatedBuildInputs = erlangDeps;
 
     inherit src;
 
@@ -46,14 +40,12 @@ let
 
     postPatch = ''
       ${postPatch}
-      rm -f rebar rebar3
     '';
 
     configurePhase = ''
       runHook preConfigure
       set -x
-      cat rebar.lock || true
-      rebar3-nix-bootstrap
+      tree
       set +x
       runHook postConfigure
     '';
@@ -61,13 +53,7 @@ let
     buildPhase = ''
       runHook preBuild
       set -x
-      cat rebar.config || true
-      cat rebar.lock || true
-      tree
-      HOME=. rebar3 compile
-      ${if compilePorts then ''
-        HOME=. rebar3 pc compile
-      '' else ''''}
+      make
       set +x
       runHook postBuild
     '';
@@ -79,7 +65,7 @@ let
       mkdir "$out/nix-support"
       printf "${appName}" > "$out/nix-support/appName"
       for reldir in src ebin priv include; do
-        fd="_build/default/lib/${appName}/$reldir"
+        fd="$reldir"
         [ -d "$fd" ] || continue
         cp -Hrt "$out/lib/erlang/lib/${appName}-${version}" "$fd"
         success=1
