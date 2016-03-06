@@ -44,6 +44,11 @@ in {
   });
   active = self.active_0_9_0;
 
+  p1_utils_1_0_3 = overrideF super.p1_utils_1_0_3 (_:{
+    buildPlugins = [ super.rebar3_hex ];
+  });
+  p1_utils = self.p1_utils_1_0_3;
+
   p1_xmlrpc_1_15_1 = overrideF super.p1_xmlrpc_1_15_1 (_:{
     buildPlugins = [ super.rebar3_hex ];
   });
@@ -62,4 +67,15 @@ in {
     '';
   });
   erlang_lua = self.erlang_lua_0_1_0;
+
+  # TODO(gleber): syslog_1_0_2 still fails with undefined reference, albeit
+  # linker args seem to be correct
+  # syslog_1_0_2 = overrideF super.syslog_1_0_2 (_:{
+  #   postPatch = ''
+  #     echo '{so_name, "syslog_drv"}.' >> rebar.config
+  #   '';
+  # });
+  # syslog = self.syslog_1_0_2;
+
+  # conferl has no deps described in hex and hex does not have it's dep sync
 }

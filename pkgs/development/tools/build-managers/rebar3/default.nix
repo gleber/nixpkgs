@@ -1,5 +1,6 @@
-{ stdenv, writeText, callPackage, fetchurl,
-  fetchHex, erlang, hermeticRebar3 ? true, rebar3-nix-bootstrap, tree, fetchFromGitHub }:
+{ stdenv, writeText, callPackage, fetchurl, fetchHex, erlang,
+  hermeticRebar3 ? true, rebar3-nix-bootstrap, tree, fetchFromGitHub,
+  rebar2Compat ? false }:
 
 
 let
@@ -92,11 +93,9 @@ stdenv.mkDerivation {
   propagatedBuildInputs = [ registrySnapshot rebar3-nix-bootstrap ];
 
   postPatch = ''
-    echo postPatch
     rebar3-nix-bootstrap registry-only
-    echo "$ERL_LIBS"
     mkdir -p _build/default/lib/
-    mkdir -p _build/default/plugins
+    mkdir -p _build/default/plugins/
     cp --no-preserve=mode -R ${erlware_commons} _build/default/lib/erlware_commons
     cp --no-preserve=mode -R ${providers} _build/default/lib/providers
     cp --no-preserve=mode -R ${getopt} _build/default/lib/getopt
@@ -116,6 +115,12 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin
     cp rebar3 $out/bin/rebar3
+    ${if rebar2Compat then ''
+      echo "#!/bin/sh
+      args=\`echo \"\$@\" | sed 's/get-deps//g'\`
+      rebar3 \$args" > $out/bin/rebar
+      chmod a+rx $out/bin/rebar
+    '' else ''''}
   '';
 
   meta = {

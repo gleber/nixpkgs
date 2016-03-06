@@ -6,7 +6,7 @@
 
 with stdenv.lib;
 
-buildErlangMk (attrs // {
+buildMakeWithErlang (attrs // {
   src = fetchHex {
     pkg = hexPkg;
     inherit version;

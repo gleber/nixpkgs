@@ -2,145 +2,31 @@
 
 /* Unbuildable packages:
 
- * active_0_9_0
- * cache_tab_1_0_2
- * cloudi_core_1_4_0_rc_4
- * cloudi_core_1_5_1
- * cloudi_service_api_requests_1_5_1
- * cloudi_service_db_1_5_1
- * cloudi_service_db_cassandra_1_3_3
- * cloudi_service_db_cassandra_cql_1_5_1
- * cloudi_service_db_couchdb_1_5_1
- * cloudi_service_db_elasticsearch_1_3_3
- * cloudi_service_db_http_elli_1_5_1
- * cloudi_service_db_memcached_1_5_1
- * cloudi_service_db_mysql_1_5_1
- * cloudi_service_db_pgsql_1_5_1
- * cloudi_service_db_riak_1_3_3
- * cloudi_service_db_tokyotyrant_1_5_0
- * cloudi_service_filesystem_1_5_1
- * cloudi_service_http_client_1_5_1
- * cloudi_service_http_cowboy_1_5_1
- * cloudi_service_http_rest_1_5_1
- * cloudi_service_map_reduce_1_5_1
- * cloudi_service_monitoring_1_5_1
- * cloudi_service_queue_1_5_1
- * cloudi_service_quorum_1_5_1
- * cloudi_service_router_1_5_1
- * cloudi_service_tcp_1_5_1
- * cloudi_service_timers_1_5_1
- * cloudi_service_udp_1_5_1
- * cloudi_service_validate_1_5_1
- * cloudi_service_zeromq_1_5_1
- * comeonin_2_1_1
- * conferl_0_0_1
- * couchbeam_1_2_1
- * cpg_1_5_0
- * craterl_0_2_3
- * crc_0_3_0
- * crypto_ext_0_1_1
- * db_0_9_0
- * ddb_client_0_1_17
- * denrei_0_2_3
- * discount_0_7_0
- * dovetail_0_0_3
- * dproto_0_1_12
- * dqe_0_1_22
- * ekstat_0_2_2
- * eleveldb_2_1_3
- * elibphonenumber_0_1_1
- * elixir_ale_0_4_1
- * emodel_1_3_1
- * enotify_0_1_0
- * epubnub_0_1_0
- * eql_0_1_2
- * erlastic_search_1_1_1
- * erlaudio_0_2_3
- * erldn_1_0_5
- * erltrace_0_1_4
- * escalus_2_6_4
- * esip_1_0_2
- * ex_bitcask_0_1_0
- * exmerl_0_1_1
- * ezlib_1_0_1
- * fast_tls_1_0_1
- * fast_xml_1_1_3
- * fast_yaml_1_0_2
- * folsom_ddb_0_1_20
- * fqc_0_1_5
- * fqc_0_1_7
- * gpb_3_18_8
- * gpb_3_19_0
- * hackney_1_1_0
- * hackney_1_3_1
- * hackney_1_3_2
- * hackney_1_4_4
- * hackney_1_4_8
- * hash_ring_ex_1_1_2
- * iconv_1_0_0
- * jc_1_0_4
- * katipo_0_2_4
- * keccakf1600_2_0_0
- * kvs_2_1_0
- * lasp_0_0_4
- * lasse_1_1_0
- * libleofs_0_1_2
- * libsnarlmatch_0_1_5
- * libsodium_0_0_3
- * mad_0_9_0
- * mcrypt_0_1_0
- * mdns_client_lib_0_1_33
- * mmath_0_1_15
- * mmath_0_1_16
- * msgpack_0_4_0
- * mstore_0_1_9
- * n2o_2_3_0
- * nacl_0_3_0
- * observer_cli_1_0_3
- * p1_mysql_1_0_1
- * p1_pgsql_1_0_1
- * p1_stringprep_1_0_1
- * p1_utils_1_0_3
- * p1_xml_1_1_1
- * picosat_0_1_0
- * pooler_1_4_0
- * pqueue_1_4_0
- * rankmatcher_0_1_2
- * rebar3_abnfc_plugin_0_1_0
- * rebar3_auto_0_3_0
- * rebar3_autotest_0_1_1
- * rebar3_eqc_0_0_8
- * rebar3_exunit_0_1_1
- * rebar3_gpb_plugin_1_0_1
- * rebar3_live_0_1_3
- * rebar3_proper_plugin_0_1_0
- * rebar3_run_0_2_0
- * rebar3_yang_plugin_0_2_1
- * rebar_protobuffs_0_1_0
- * recon_2_2_1
- * riak_ensemble_2_1_3
- * savory_0_0_2
- * serial_0_1_2
- * service_1_5_1
- * slp_0_0_2
- * snappy_1_1_1
- * sqlite3_1_1_5
- * ssl_verify_hostname_1_0_5
- * ssl_verify_hostname_1_0_6
- * stringprep_1_0_2
- * stun_1_0_1
- * syslog_1_0_2
- * ucol_nif_1_1_5
- * weber_0_1_0
- * wpa_supplicant_0_1_0
- * xref_runner_0_2_5
- * yomel_0_5_0
 
 */
 { stdenv, pkgs, callPackage, overrides ? (self: super: {}) }:
 
 let
   packages = self: rec {
+    active_0_9_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "active";
+            version = "0.9.0";
+            sha256 =
+              "3ec6a0eda29137866674ddd56d44f6b0383fa3ec4480121639d2ef61b443ec28";
+
+            meta = {
+              description = "Erlang active reloader";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/synrc/active";
+            };
+          } // packageOverrides)
+      ) {};
+
+    active = active_0_9_0;
+
     amqp_client_3_5_6 = callPackage
       (
         {
@@ -427,6 +313,29 @@ let
 
     bstr = bstr_0_3_0;
 
+    cache_tab_1_0_2 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "cache_tab";
+            version = "1.0.2";
+            sha256 =
+              "1d802a8bdf01178e1c6171037cc6e66da1a0c9fbb6589f644919d9a7402ebcd2";
+
+            erlangDeps  = [ p1_utils_1_0_3 rebar3_hex ];
+
+            meta = {
+              description = "In-memory cache Erlang / Elixir library";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/cache_tab";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cache_tab = cache_tab_1_0_2;
+
     certifi_0_1_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -538,6 +447,816 @@ let
 
     cf = cf_0_2_1;
 
+    cloudi_core_1_4_0_rc_4 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cpg_1_5_0,
+          dynamic_compile_1_0_0,
+          erlang_term_1_4_0,
+          key2value_1_4_0,
+          keys1value_1_5_1,
+          nodefinder_1_5_1,
+          pqueue_1_4_0,
+          quickrand_1_5_0,
+          reltool_util_1_4_0,
+          syslog_1_0_2,
+          trie_1_5_1,
+          uuid_erl_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_core";
+            version = "1.4.0-rc.4";
+            sha256 =
+              "b212daaafcb2b5499c658faec2ba99ce7431b9ab2b2d41b283e8f0682b20dbc9";
+
+            erlangDeps  = [
+                            cpg_1_5_0
+                            dynamic_compile_1_0_0
+                            erlang_term_1_4_0
+                            key2value_1_4_0
+                            keys1value_1_5_1
+                            nodefinder_1_5_1
+                            pqueue_1_4_0
+                            quickrand_1_5_0
+                            reltool_util_1_4_0
+                            syslog_1_0_2
+                            trie_1_5_1
+                            uuid_erl_1_5_1
+                          ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_core_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cpg_1_5_1,
+          dynamic_compile_1_0_0,
+          erlang_term_1_5_1,
+          key2value_1_5_1,
+          keys1value_1_5_1,
+          nodefinder_1_5_1,
+          pqueue_1_5_1,
+          quickrand_1_5_1,
+          reltool_util_1_5_1,
+          supool_1_5_1,
+          syslog_1_0_2,
+          trie_1_5_1,
+          uuid_erl_1_5_1,
+          varpool_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_core";
+            version = "1.5.1";
+            sha256 =
+              "1dd4471c9c5d5b0e8c0ccaff2878e046c430a8b00d59c2c0a41ed29cba1102ba";
+
+            erlangDeps  = [
+                            cpg_1_5_1
+                            dynamic_compile_1_0_0
+                            erlang_term_1_5_1
+                            key2value_1_5_1
+                            keys1value_1_5_1
+                            nodefinder_1_5_1
+                            pqueue_1_5_1
+                            quickrand_1_5_1
+                            reltool_util_1_5_1
+                            supool_1_5_1
+                            syslog_1_0_2
+                            trie_1_5_1
+                            uuid_erl_1_5_1
+                            varpool_1_5_1
+                          ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_core = cloudi_core_1_5_1;
+
+    cloudi_service_api_requests_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          jsx_2_2_0,
+          trie_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_api_requests";
+            version = "1.5.1";
+            sha256 =
+              "3af4a6bb4ef9f428f6044a752cc5c37cd7bf9fdc7d26407044b8c716b40c86f3";
+
+            erlangDeps  = [ cloudi_core_1_5_1 jsx_2_2_0 trie_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework API requests (JSON-RPC/Erlang-term support)";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_api_requests = cloudi_service_api_requests_1_5_1;
+
+    cloudi_service_db_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          trie_1_5_1,
+          uuid_erl_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db";
+            version = "1.5.1";
+            sha256 =
+              "067fccc8ca006722021b873995245f498a86582540bf738f6648bdceebd187e9";
+
+            erlangDeps  = [ cloudi_core_1_5_1 trie_1_5_1 uuid_erl_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework Database (in-memory/testing/generic)";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db = cloudi_service_db_1_5_1;
+
+    cloudi_service_db_cassandra_1_3_3 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_4_0_rc_4
+        }:
+          buildHex ({
+            name = "cloudi_service_db_cassandra";
+            version = "1.3.3";
+            sha256 =
+              "78c9f924df50466fc3d27ffdd38dd235562be2ba4da5c298c569b3eee2bc10ef";
+
+            erlangDeps  = [ cloudi_core_1_4_0_rc_4 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Cassandra Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_cassandra = cloudi_service_db_cassandra_1_3_3;
+
+    cloudi_service_db_cassandra_cql_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_cassandra_cql";
+            version = "1.5.1";
+            sha256 =
+              "09173e571262745de51bb0b53732d909d846c80079ce33b976df7d61584f9ba8";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework Cassandra CQL Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_cassandra_cql =
+      cloudi_service_db_cassandra_cql_1_5_1;
+
+    cloudi_service_db_couchdb_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_couchdb";
+            version = "1.5.1";
+            sha256 =
+              "c6e97aadacf625549c99a96435e35d0dc971a7d0e7cf5283769e3d7e8ee36812";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework CouchDB Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_couchdb = cloudi_service_db_couchdb_1_5_1;
+
+    cloudi_service_db_elasticsearch_1_3_3 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_4_0_rc_4
+        }:
+          buildHex ({
+            name = "cloudi_service_db_elasticsearch";
+            version = "1.3.3";
+            sha256 =
+              "2e4f6c8488ce879235f0548cb15cae6f3bcbb3c0b20e51ab3faad6769220ee12";
+
+            erlangDeps  = [ cloudi_core_1_4_0_rc_4 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework elasticsearch Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_elasticsearch =
+      cloudi_service_db_elasticsearch_1_3_3;
+
+    cloudi_service_db_http_elli_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          cowlib_1_0_2,
+          elli_1_0_4,
+          trie_1_5_1,
+          uuid_erl_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_http_elli";
+            version = "1.5.1";
+            sha256 =
+              "f1dde8cbb83773fb0e9ac918ac5c6ffdf3255462d252296b9a23f02e144ea13a";
+
+            erlangDeps  = [
+                            cloudi_core_1_5_1
+                            cowlib_1_0_2
+                            elli_1_0_4
+                            trie_1_5_1
+                            uuid_erl_1_5_1
+                          ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework elli HTTP Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_http_elli = cloudi_service_db_http_elli_1_5_1;
+
+    cloudi_service_db_memcached_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_memcached";
+            version = "1.5.1";
+            sha256 =
+              "edcd28714e02d1b875c0c3a754fe230d5247b7b5e10194a74ee4d425fdca0839";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework memcached Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_memcached = cloudi_service_db_memcached_1_5_1;
+
+    cloudi_service_db_mysql_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_mysql";
+            version = "1.5.1";
+            sha256 =
+              "9bb0dec142d903615e0a5e360bd5faae9ceeccf37f1afc705e2a9a402c273a5b";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework MySQL Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_mysql = cloudi_service_db_mysql_1_5_1;
+
+    cloudi_service_db_pgsql_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_pgsql";
+            version = "1.5.1";
+            sha256 =
+              "d7cf7cb44d57e84f68310f0e146bf2c76f0aa42bca0073166c0da79ddd44b70e";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework PostgreSQL Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_pgsql = cloudi_service_db_pgsql_1_5_1;
+
+    cloudi_service_db_riak_1_3_3 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_4_0_rc_4
+        }:
+          buildHex ({
+            name = "cloudi_service_db_riak";
+            version = "1.3.3";
+            sha256 =
+              "902b6cb52a077fa47579631c07ca5ee414001b7388aac324b668c902a75de459";
+
+            erlangDeps  = [ cloudi_core_1_4_0_rc_4 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Riak Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_riak = cloudi_service_db_riak_1_3_3;
+
+    cloudi_service_db_tokyotyrant_1_5_0 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_db_tokyotyrant";
+            version = "1.5.0";
+            sha256 =
+              "553893dfed554b3988e80f6dbc2aa301255941646fe82df57d4bca00ffeb9d1a";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework Tokyo Tyrant Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_db_tokyotyrant =
+      cloudi_service_db_tokyotyrant_1_5_0;
+
+    cloudi_service_filesystem_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          cowlib_1_0_2
+        }:
+          buildHex ({
+            name = "cloudi_service_filesystem";
+            version = "1.5.1";
+            sha256 =
+              "18fa3406bd3a6cafb40cbacd01c16ff32daccf6b4eb45efa6ec351d03f08d4c3";
+
+            erlangDeps  = [ cloudi_core_1_5_1 cowlib_1_0_2 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Filesystem Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_filesystem = cloudi_service_filesystem_1_5_1;
+
+    cloudi_service_http_client_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          trie_1_5_1,
+          uuid_erl_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_http_client";
+            version = "1.5.1";
+            sha256 =
+              "674be0160e09543e9cddf0286b11d8110514b0db3d18e2f9e097796997b7a7db";
+
+            erlangDeps  = [ cloudi_core_1_5_1 trie_1_5_1 uuid_erl_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework HTTP client Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_http_client = cloudi_service_http_client_1_5_1;
+
+    cloudi_service_http_cowboy_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          cowboy_1_0_4
+        }:
+          buildHex ({
+            name = "cloudi_service_http_cowboy";
+            version = "1.5.1";
+            sha256 =
+              "e0d07bbcd33bac980b66b7854bb8804433ba4619b6c6a3be63fefa36372b7a4b";
+
+            erlangDeps  = [ cloudi_core_1_5_1 cowboy_1_0_4 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework cowboy HTTP/HTTPS Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_http_cowboy = cloudi_service_http_cowboy_1_5_1;
+
+    cloudi_service_http_rest_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          trie_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_http_rest";
+            version = "1.5.1";
+            sha256 =
+              "5f9f51df32defa5d383446431a0029d614732b1377933e0c682ca4556cfe63ce";
+
+            erlangDeps  = [ cloudi_core_1_5_1 trie_1_5_1 ];
+
+            meta = {
+              description = "REST HTTP CloudI Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_http_rest = cloudi_service_http_rest_1_5_1;
+
+    cloudi_service_map_reduce_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_map_reduce";
+            version = "1.5.1";
+            sha256 =
+              "44d31fd7f4e772bce5f508f4eb41d423bbfc347f2d7a4194326085ee5542a61d";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Map/Reduce Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_map_reduce = cloudi_service_map_reduce_1_5_1;
+
+    cloudi_service_monitoring_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1,
+          folsom_0_8_3,
+          key2value_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_monitoring";
+            version = "1.5.1";
+            sha256 =
+              "4cb1d89085bba3b30910d8d129dde609cc063f761a736418da0eb9491ee673d5";
+
+            erlangDeps  = [ cloudi_core_1_5_1 folsom_0_8_3 key2value_1_5_1 ];
+
+            meta = {
+              description = "CloudI Monitoring Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_monitoring = cloudi_service_monitoring_1_5_1;
+
+    cloudi_service_queue_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_queue";
+            version = "1.5.1";
+            sha256 =
+              "7fc7a1f0e8a888df2f6b5a2d3c0a7134475ba99f08aeb92244bbbf12e420d4c6";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description =
+                "Erlang/Elixir Cloud Framework Persistent Queue Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_queue = cloudi_service_queue_1_5_1;
+
+    cloudi_service_quorum_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_quorum";
+            version = "1.5.1";
+            sha256 =
+              "2ca5f275073696f6226c7610a3933761d28081ad86d2b7a37dac41b40fe293f9";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Quorum Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_quorum = cloudi_service_quorum_1_5_1;
+
+    cloudi_service_router_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_router";
+            version = "1.5.1";
+            sha256 =
+              "e37d8f657183ab44fe28f27d02a6a50608c04af8f47872cbd4cb12a19a23b18f";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Router Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_router = cloudi_service_router_1_5_1;
+
+    cloudi_service_tcp_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_tcp";
+            version = "1.5.1";
+            sha256 =
+              "f0be083ef768aa356148f7fa26989139bfc5d8fb6f1119bd31eed06e5ab38469";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework TCP Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_tcp = cloudi_service_tcp_1_5_1;
+
+    cloudi_service_timers_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_timers";
+            version = "1.5.1";
+            sha256 =
+              "c576fe4725493fd3303945398b0984f339a8b52877bead4deb282e7d0f4bbc64";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Timers Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_timers = cloudi_service_timers_1_5_1;
+
+    cloudi_service_udp_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_udp";
+            version = "1.5.1";
+            sha256 =
+              "d2939f6eb8048a0b154463e3ee5ff986a0a5370c97019e5562ee3fbb07b8698b";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework UDP Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_udp = cloudi_service_udp_1_5_1;
+
+    cloudi_service_validate_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_validate";
+            version = "1.5.1";
+            sha256 =
+              "96712d805bea5f36acbb01c90b46b87532e64a454a7c2b4deb34029508c51c78";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Validate Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_validate = cloudi_service_validate_1_5_1;
+
+    cloudi_service_zeromq_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "cloudi_service_zeromq";
+            version = "1.5.1";
+            sha256 =
+              "dba08d714d32fc9b50658ef075a13e99285458f73f433fb6f2059afcfb1ce498";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework ZeroMQ Service";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    cloudi_service_zeromq = cloudi_service_zeromq_1_5_1;
+
     cmark_0_6_8 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -559,6 +1278,73 @@ let
       ) {};
 
     cmark = cmark_0_6_8;
+
+    comeonin_2_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "comeonin";
+            version = "2.1.1";
+            sha256 =
+              "7f85774ae5d453f664d0e7809cc1ab32ff22855d16ff6a2edd68c6d36cb1a1aa";
+            compilePorts = true;
+
+            meta = {
+              description =
+                "Password hashing (bcrypt, pbkdf2_sha512) library for Elixir.";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "https://github.com/elixircnx/comeonin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    comeonin = comeonin_2_1_1;
+
+    conferl_0_0_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "conferl";
+            version = "0.0.1";
+            sha256 =
+              "402ff3b66ff98ada2b537e2d9d329f4f6f32230c39d7a3be150cf72b7525f801";
+
+            meta = {
+              description =
+                "Auto-Conference Service in Erlang (similar to Disqus)";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/inaka/conferl";
+            };
+          } // packageOverrides)
+      ) {};
+
+    conferl = conferl_0_0_1;
+
+    couchbeam_1_2_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          hackney_1_4_4,
+          jsx_2_8_0
+        }:
+          buildHex ({
+            name = "couchbeam";
+            version = "1.2.1";
+            sha256 =
+              "ed19f0412aa0539ecf622ac8ade1ca0e316f424e3334ad015a3fb8db19e91194";
+
+            erlangDeps  = [ hackney_1_4_4 jsx_2_8_0 ];
+
+            meta = {
+              description = "Erlang CouchDB client";
+              license = stdenv.lib.licenses.free;
+            };
+          } // packageOverrides)
+      ) {};
+
+    couchbeam = couchbeam_1_2_1;
 
     cowboy_1_0_4 = callPackage
       (
@@ -641,6 +1427,32 @@ let
 
     cowlib = cowlib_1_3_0;
 
+    cpg_1_5_0 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          quickrand_1_5_1,
+          reltool_util_1_5_1,
+          trie_1_5_1
+        }:
+          buildHex ({
+            name = "cpg";
+            version = "1.5.0";
+            sha256 =
+              "64ac3e916cd67f99bcbcd098f3f32672e7b23829a0b92bef759f525a20defea1";
+
+            erlangDeps  = [ quickrand_1_5_1 reltool_util_1_5_1 trie_1_5_1 ];
+
+            meta = {
+              description = "CloudI Process Groups";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "https://github.com/okeuday/cpg";
+            };
+          } // packageOverrides)
+      ) {};
+
     cpg_1_5_1 = callPackage
       (
         {
@@ -668,6 +1480,73 @@ let
       ) {};
 
     cpg = cpg_1_5_1;
+
+    craterl_0_2_3 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          hackney_1_3_1,
+          jsx_2_7_1
+        }:
+          buildHex ({
+            name = "craterl";
+            version = "0.2.3";
+            sha256 =
+              "bbbfa254fa5834d144f9061fff03035eca9a50b5e7581ce342c495b91af02929";
+
+            erlangDeps  = [ hackney_1_3_1 jsx_2_7_1 ];
+
+            meta = {
+              description = "erlang client for crate";
+              license = stdenv.lib.licenses.free;
+            };
+          } // packageOverrides)
+      ) {};
+
+    craterl = craterl_0_2_3;
+
+    crc_0_3_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "crc";
+            version = "0.3.0";
+            sha256 =
+              "23d7cb6a18cca461f46f5a0f341c74fd0a680cdae62460687f1a24f0a7faabd4";
+
+            meta = {
+              description =
+                "A library used to calculate CRC checksums for binary data";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/TattdCodeMonkey/crc";
+            };
+          } // packageOverrides)
+      ) {};
+
+    crc = crc_0_3_0;
+
+    crypto_ext_0_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "crypto_ext";
+            version = "0.1.1";
+            sha256 =
+              "19715a35b392c557cc9503e2aa1f8fbd1dcd3cdcb11a0d2f73a3fe75f4db76b8";
+            compilePorts = true;
+
+            meta = {
+              description =
+                "Crypto lib extension to support AES 128 ECB cipher";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/adrienmo/crypto_ext";
+            };
+          } // packageOverrides)
+      ) {};
+
+    crypto_ext = crypto_ext_0_1_1;
 
     crypto_rsassa_pss_1_0_0 = callPackage
       (
@@ -733,6 +1612,70 @@ let
 
     cucumberl = cucumberl_0_0_6;
 
+    db_0_9_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "db";
+            version = "0.9.0";
+            sha256 =
+              "23d0307bc227782b1c0c86bb5b66130312cf3eb4363f3f39d5b1fc84140b3a91";
+
+            meta = {
+              description = "Banking Database";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/spawnproc/db";
+            };
+          } // packageOverrides)
+      ) {};
+
+    db = db_0_9_0;
+
+    ddb_client_0_1_17 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          dproto_0_1_12,
+          mmath_0_1_15
+        }:
+          buildHex ({
+            name = "ddb_client";
+            version = "0.1.17";
+            sha256 =
+              "8a65ef0f4e1edb2c575f8c8b38b4fed51ea94fd6c6ec39cc464a66dab45e0892";
+
+            erlangDeps  = [ dproto_0_1_12 mmath_0_1_15 ];
+
+            meta = {
+              description = "DalmatinerDB client";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/ddb_client";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ddb_client = ddb_client_0_1_17;
+
+    denrei_0_2_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "denrei";
+            version = "0.2.3";
+            sha256 =
+              "bc0e8cf7e085dda6027df83ef5d63c41b93988bcd7f3db7c68e4dad3cd599744";
+
+            meta = {
+              description = "Denrei - a lightweight Erlang messaging system.";
+              license = stdenv.lib.licenses.mit;
+            };
+          } // packageOverrides)
+      ) {};
+
+    denrei = denrei_0_2_3;
+
     detergent_0_3_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -770,6 +1713,106 @@ let
       ) {};
 
     dflow = dflow_0_1_5;
+
+    discount_0_7_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "discount";
+            version = "0.7.0";
+            sha256 =
+              "a37b7890620f93aa2fae06eee364cd906991588bc8897e659f51634179519c97";
+
+            meta = {
+              description = "Elixir NIF for discount, a Markdown parser";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/asaaki/discount.ex";
+            };
+          } // packageOverrides)
+      ) {};
+
+    discount = discount_0_7_0;
+
+    dovetail_0_0_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "dovetail";
+            version = "0.0.3";
+            sha256 =
+              "01b6c3085ebb9cb7d43115c7a2d9780a840017e521daeb7d0a2233f61f8b0306";
+
+            meta = {
+              description =
+                "Dovetail provides a harness for running test dovecot servers.";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/thusfresh/dovetail";
+            };
+          } // packageOverrides)
+      ) {};
+
+    dovetail = dovetail_0_0_3;
+
+    dproto_0_1_12 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, mmath_0_1_15
+        }:
+          buildHex ({
+            name = "dproto";
+            version = "0.1.12";
+            sha256 =
+              "49e2a048293a6c6213b69b5e983c581f81de0536e9acb5c47cd113ef410abbcf";
+
+            erlangDeps  = [ mmath_0_1_15 ];
+
+            meta = {
+              description = "Protocols for dalmatinerdb";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/dproto";
+            };
+          } // packageOverrides)
+      ) {};
+
+    dproto = dproto_0_1_12;
+
+    dqe_0_1_22 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          ddb_client_0_1_17,
+          dflow_0_1_5,
+          dproto_0_1_12,
+          lager_2_1_1,
+          mmath_0_1_15,
+          poolboy_1_5_1
+        }:
+          buildHex ({
+            name = "dqe";
+            version = "0.1.22";
+            sha256 =
+              "ee24de86b0b23980de4a63948f0c1fd956ab25e28255ae38eaa6e4c623988503";
+
+            erlangDeps  = [
+                            ddb_client_0_1_17
+                            dflow_0_1_5
+                            dproto_0_1_12
+                            lager_2_1_1
+                            mmath_0_1_15
+                            poolboy_1_5_1
+                          ];
+
+            meta = {
+              description = "DalmatinerDB query engine";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/dqe";
+            };
+          } // packageOverrides)
+      ) {};
+
+    dqe = dqe_0_1_22;
 
     dynamic_compile_1_0_0 = callPackage
       (
@@ -863,6 +1906,90 @@ let
 
     egithub = egithub_0_2_2;
 
+    ekstat_0_2_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "ekstat";
+            version = "0.2.2";
+            sha256 =
+              "fdd30052433bf7ceb453397c4cabee2d9b0a2a716842a29a1121d3474c5b9fa7";
+            compilePorts = true;
+            buildPlugins  = [ pc ];
+
+
+            meta = {
+              description = "libkstat interface for erlang";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/Licenser/ekstat";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ekstat = ekstat_0_2_2;
+
+    eleveldb_2_1_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "eleveldb";
+            version = "2.1.3";
+            sha256 =
+              "91f4caccc3d0a40a6135b9a647a52c7ec5fefdd41883e1a0f32745838d7cfd3c";
+            compilePorts = true;
+            buildPlugins  = [ pc ];
+
+
+            meta = {
+              description = "Erlang LevelDB API";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/basho/eleveldb";
+            };
+          } // packageOverrides)
+      ) {};
+
+    eleveldb = eleveldb_2_1_3;
+
+    elibphonenumber_0_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "elibphonenumber";
+            version = "0.1.1";
+            sha256 =
+              "6dcbcd49fe7c969873a3431eaa3939298b2564308d2a8fbcc22b7d9b4bc65f27";
+            compilePorts = true;
+
+            meta = {
+              description = "A port driver for libphonenumber";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/johnhamelink/elibphonenumber";
+            };
+          } // packageOverrides)
+      ) {};
+
+    elibphonenumber = elibphonenumber_0_1_1;
+
+    elixir_ale_0_4_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "elixir_ale";
+            version = "0.4.1";
+            sha256 =
+              "2ee5c6989a8005a0ab8f1aea0b4f89b5feae75be78a70bade6627c3624c59c46";
+
+            meta = {
+              description =
+                "Elixir access to hardware I/O interfaces such as GPIO, I2C, and SPI.";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/fhunleth/elixir_ale";
+            };
+          } // packageOverrides)
+      ) {};
+
+    elixir_ale = elixir_ale_0_4_1;
+
     elli_1_0_4 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -885,6 +2012,45 @@ let
       ) {};
 
     elli = elli_1_0_4;
+
+    emodel_1_3_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "emodel";
+            version = "1.3.1";
+            sha256 =
+              "6271ac4fb20c81b60ce568345ddec8abaea59a6b1eb63aa35ada25a009464ce2";
+
+            meta = {
+              description = "Erlang data transformation/validation library";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/egobrain/emodel";
+            };
+          } // packageOverrides)
+      ) {};
+
+    emodel = emodel_1_3_1;
+
+    enotify_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "enotify";
+            version = "0.1.0";
+            sha256 =
+              "8e48da763ce15bfd75cc857ddfe5011b03189d597f47bcdd8acc6fbbe8e6b6f4";
+            compilePorts = true;
+
+            meta = {
+              description = "Filesystem listener";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/tsloughter/enotify";
+            };
+          } // packageOverrides)
+      ) {};
+
+    enotify = enotify_0_1_0;
 
     ensq_0_1_6 = callPackage
       (
@@ -1001,6 +2167,51 @@ let
       ) {};
 
     eplugin = eplugin_0_1_4;
+
+    epubnub_0_1_0 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          hackney_1_3_2,
+          jsx_2_7_1
+        }:
+          buildHex ({
+            name = "epubnub";
+            version = "0.1.0";
+            sha256 =
+              "5a3b21ea035b1a7d89eeaf062da946fb17682a72fb9ae12d313677552f63fa69";
+
+            erlangDeps  = [ hackney_1_3_2 jsx_2_7_1 ];
+
+            meta = {
+              description = "Erlang PubNub API";
+              license = stdenv.lib.licenses.free;
+            };
+          } // packageOverrides)
+      ) {};
+
+    epubnub = epubnub_0_1_0;
+
+    eql_0_1_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "eql";
+            version = "0.1.2";
+            sha256 =
+              "3b1a85c491d44262802058c0de97a2c90678d5d45851b88a076b1a45a8d6d4b3";
+
+            meta = {
+              description = "Erlang with SQL";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/artemeff/eql";
+            };
+          } // packageOverrides)
+      ) {};
+
+    eql = eql_0_1_2;
 
     eredis_1_0_8 = callPackage
       (
@@ -1125,6 +2336,54 @@ let
 
     erlang_version = erlang_version_0_2_0;
 
+    erlastic_search_1_1_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          hackney_1_1_0,
+          jsx_2_6_2
+        }:
+          buildHex ({
+            name = "erlastic_search";
+            version = "1.1.1";
+            sha256 =
+              "ac15a64db1397b616e1308b997d5de5372a3f67bd2bbdbf32b22d635befcc55a";
+
+            erlangDeps  = [ hackney_1_1_0 jsx_2_6_2 ];
+
+            meta = {
+              description =
+                "An Erlang app for communicating with Elastic Search's rest interface.";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/tsloughter/erlastic_search";
+            };
+          } // packageOverrides)
+      ) {};
+
+    erlastic_search = erlastic_search_1_1_1;
+
+    erlaudio_0_2_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "erlaudio";
+            version = "0.2.3";
+            sha256 =
+              "cb9efb0ce80faae003ab39f8cc2d3fccbb4bd1c8f5f525aea392f28662517032";
+            compilePorts = true;
+
+            meta = {
+              description = "Erlang audio bindings to portaudio";
+              license = stdenv.lib.licenses.apsl20;
+              homepage = "https://github.com/asonge/erlaudio";
+            };
+          } // packageOverrides)
+      ) {};
+
+    erlaudio = erlaudio_0_2_3;
+
     erlcloud_0_11_0 = callPackage
       (
         {
@@ -1178,6 +2437,25 @@ let
       ) {};
 
     erlcloud = erlcloud_0_12_0;
+
+    erldn_1_0_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "erldn";
+            version = "1.0.5";
+            sha256 =
+              "b7fdafda24884ab52dc453a18a99ad3d31fa690770d2d50f8e5bdbc3fff0f166";
+
+            meta = {
+              description = "An edn parser for the Erlang platform.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/marianoguerra/erldn";
+            };
+          } // packageOverrides)
+      ) {};
+
+    erldn = erldn_1_0_5;
 
     erlexec_1_1_0 = callPackage
       (
@@ -1240,6 +2518,28 @@ let
 
     erlsom = erlsom_1_2_1;
 
+    erltrace_0_1_4 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "erltrace";
+            version = "0.1.4";
+            sha256 =
+              "821452cb6d470cfe22cd1793c94c4e499957c72944a5d8781253aeb5b610acb0";
+            compilePorts = true;
+            buildPlugins  = [ pc ];
+
+
+            meta = {
+              description = "erlang dtrace consumer.";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/project-fifo/erltrace";
+            };
+          } // packageOverrides)
+      ) {};
+
+    erltrace = erltrace_0_1_4;
+
     erlware_commons_0_18_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {}, cf_0_2_1 }:
@@ -1280,6 +2580,25 @@ let
 
     erlzk = erlzk_0_6_1;
 
+    escalus_2_6_4 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "escalus";
+            version = "2.6.4";
+            sha256 =
+              "f5227c39ddbdeb1056fd69eef1c8a80364fb8b690b98d662b126bb95f4108d66";
+
+            meta = {
+              description = "Escalus is an Erlang XMPP client library";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/esl/escalus";
+            };
+          } // packageOverrides)
+      ) {};
+
+    escalus = escalus_2_6_4;
+
     esel_0_1_2 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -1297,6 +2616,35 @@ let
       ) {};
 
     esel = esel_0_1_2;
+
+    esip_1_0_2 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          fast_tls_1_0_1,
+          p1_utils_1_0_3,
+          stun_1_0_1
+        }:
+          buildHex ({
+            name = "esip";
+            version = "1.0.2";
+            sha256 =
+              "659b684d2573a52dfe411f20a36b704c41183b4c8206261229bfad12404d1cf7";
+            compilePorts = true;
+
+            erlangDeps  = [ fast_tls_1_0_1 p1_utils_1_0_3 stun_1_0_1 ];
+
+            meta = {
+              description = "ProcessOne SIP server component in Erlang";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/esip";
+            };
+          } // packageOverrides)
+      ) {};
+
+    esip = esip_1_0_2;
 
     esqlite_0_2_1 = callPackage
       (
@@ -1337,6 +2685,28 @@ let
 
     eunit_formatters = eunit_formatters_0_3_1;
 
+    ex_bitcask_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "ex_bitcask";
+            version = "0.1.0";
+            sha256 =
+              "dc771229aae3c07c31a5523303f0c4dbe3c700d5025a09dfcca9cc357222c463";
+            compilePorts = true;
+
+            meta = {
+              longDescription = "Elixir wrapper of Basho's Bitcask Key/Value
+                                store. Bitcask as a Log-Structured Hash Table
+                                for Fast Key/Value Data. ";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/JonGretar/ExBitcask";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ex_bitcask = ex_bitcask_0_1_0;
+
     exec_1_0_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -1358,6 +2728,47 @@ let
       ) {};
 
     exec = exec_1_0_1;
+
+    exmerl_0_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "exmerl";
+            version = "0.1.1";
+            sha256 =
+              "4bb5d6c1863c5e381b460416c9b517a211db9abd9abf0f32c99b07e128b842aa";
+
+            meta = {
+              description =
+                "An Elixir wrapper for parsing XML through the xmerl_* suite of modules
+";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/pwoolcoc/exmerl";
+            };
+          } // packageOverrides)
+      ) {};
+
+    exmerl = exmerl_0_1_1;
+
+    ezlib_1_0_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "ezlib";
+            version = "1.0.1";
+            sha256 =
+              "fea58a6ab557888dbfc91a8d20c55755614c123277a57dea2e91711c630465e1";
+            compilePorts = true;
+
+            meta = {
+              description = "Native zlib driver for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/ezlib";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ezlib = ezlib_1_0_1;
 
     ezmq_0_2_0 = callPackage
       (
@@ -1385,6 +2796,80 @@ let
       ) {};
 
     ezmq = ezmq_0_2_0;
+
+    fast_tls_1_0_1 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "fast_tls";
+            version = "1.0.1";
+            sha256 =
+              "479d1e53a14b749b96581df7320440da1ff56df9dde91d327b3ecc1bc60fcb0d";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
+
+            meta = {
+              description =
+                "TLS / SSL OpenSSL-based native driver for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/fast_tls";
+            };
+          } // packageOverrides)
+      ) {};
+
+    fast_tls = fast_tls_1_0_1;
+
+    fast_xml_1_1_3 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "fast_xml";
+            version = "1.1.3";
+            sha256 =
+              "ea1abe9cdfa0df67178378ba5ec11e746023b66bc1ed0f980ae69d2aa1f732c3";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
+
+            meta = {
+              description =
+                "Fast Expat-based Erlang / Elixir XML parsing library";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/fast_xml";
+            };
+          } // packageOverrides)
+      ) {};
+
+    fast_xml = fast_xml_1_1_3;
+
+    fast_yaml_1_0_2 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "fast_yaml";
+            version = "1.0.2";
+            sha256 =
+              "2f2034d6003425b02619ba15658665134cfd81e3d1c9379c268f802a5775086d";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
+
+            meta = {
+              description = "Fast YAML native library for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/fast_yaml";
+            };
+          } // packageOverrides)
+      ) {};
+
+    fast_yaml = fast_yaml_1_0_2;
 
     feeder_2_0_0 = callPackage
       (
@@ -1470,6 +2955,32 @@ let
 
     folsom = folsom_0_8_3;
 
+    folsom_ddb_0_1_20 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          ddb_client_0_1_17
+        }:
+          buildHex ({
+            name = "folsom_ddb";
+            version = "0.1.20";
+            sha256 =
+              "9103ab70b048bf35618daf85b314d815e66c23e7100a71b07dcbec18e75d02d1";
+
+            erlangDeps  = [ ddb_client_0_1_17 ];
+
+            meta = {
+              description = "DalmatinerDB backend to store folsom metrics";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/folsom_ddb";
+            };
+          } // packageOverrides)
+      ) {};
+
+    folsom_ddb = folsom_ddb_0_1_20;
+
     folsomite_1_2_8 = callPackage
       (
         {
@@ -1514,6 +3025,42 @@ let
       ) {};
 
     forms = forms_0_0_1;
+
+    fqc_0_1_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "fqc";
+            version = "0.1.5";
+            sha256 =
+              "47536dec351a12e1cbe0bc3b52bfff3b0690b0aec660472b5cf49f812eb9aa4f";
+
+            meta = {
+              description = "FiFo EQC helper";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/project-fifo/fqc";
+            };
+          } // packageOverrides)
+      ) {};
+
+    fqc_0_1_7 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "fqc";
+            version = "0.1.7";
+            sha256 =
+              "b6873982bad60a34553b00435848521f5178b5508eeded8dfa0d8b2e00846e8e";
+
+            meta = {
+              description = "FiFo EQC helper";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/project-fifo/fqc";
+            };
+          } // packageOverrides)
+      ) {};
+
+    fqc = fqc_0_1_7;
 
     fs_0_9_2 = callPackage
       (
@@ -1633,6 +3180,44 @@ let
 
     goldrush = goldrush_0_1_7;
 
+    gpb_3_18_8 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "gpb";
+            version = "3.18.8";
+            sha256 =
+              "44af8eadd3edc030684d36ea6964926af6d95aa32e105a02fcc2cd2e1b436694";
+
+            meta = {
+              description =
+                "A compiler for Google protocol buffer definitions files for Erlang.";
+              license = stdenv.lib.licenses.lgpl21;
+              homepage = "https://github.com/tomas-abrahamsson/gpb";
+            };
+          } // packageOverrides)
+      ) {};
+
+    gpb_3_19_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "gpb";
+            version = "3.19.0";
+            sha256 =
+              "9d7fdee6914d5ce3850a58f00ae37240ba7ccb9ecf37aeb0e1bdfae37ca6b4b7";
+
+            meta = {
+              description =
+                "A compiler for Google protocol buffer definitions files for Erlang.";
+              license = stdenv.lib.licenses.lgpl21;
+              homepage = "https://github.com/tomas-abrahamsson/gpb";
+            };
+          } // packageOverrides)
+      ) {};
+
+    gpb = gpb_3_19_0;
+
     gproc_0_3_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -1743,6 +3328,147 @@ let
 
     gurka = gurka_0_1_7;
 
+    hackney_1_1_0 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          idna_1_0_3,
+          ssl_verify_hostname_1_0_6
+        }:
+          buildHex ({
+            name = "hackney";
+            version = "1.1.0";
+            sha256 =
+              "c8551072fdc8d5d5faacc5a31050cb943c3a8eb533149798b3ff424ef2d68501";
+
+            erlangDeps  = [ idna_1_0_3 ssl_verify_hostname_1_0_6 ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hackney_1_3_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          idna_1_0_3,
+          ssl_verify_hostname_1_0_6
+        }:
+          buildHex ({
+            name = "hackney";
+            version = "1.3.1";
+            sha256 =
+              "1a6316daceae744758fc88f2961e68c5a8b6cf1e1f49a28fc2caea6d27581add";
+
+            erlangDeps  = [ idna_1_0_3 ssl_verify_hostname_1_0_6 ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hackney_1_3_2 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          idna_1_0_3,
+          ssl_verify_hostname_1_0_6
+        }:
+          buildHex ({
+            name = "hackney";
+            version = "1.3.2";
+            sha256 =
+              "9b811cff637b29f9c7e2c61abf01986c85cd4f64a9422315fd803993b4e82615";
+
+            erlangDeps  = [ idna_1_0_3 ssl_verify_hostname_1_0_6 ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hackney_1_4_4 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          certifi_0_1_1,
+          idna_1_0_2,
+          mimerl_1_0_0,
+          ssl_verify_hostname_1_0_5
+        }:
+          buildHex ({
+            name = "hackney";
+            version = "1.4.4";
+            sha256 =
+              "c8ab2436556d6bce7e85a85adec67f6abeb8c7508668a3e29750be3c4bf4e3a8";
+
+            erlangDeps  = [
+                            certifi_0_1_1
+                            idna_1_0_2
+                            mimerl_1_0_0
+                            ssl_verify_hostname_1_0_5
+                          ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hackney_1_4_8 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          certifi_0_3_0,
+          idna_1_0_3,
+          mimerl_1_0_2,
+          ssl_verify_hostname_1_0_5
+        }:
+          buildHex ({
+            name = "hackney";
+            version = "1.4.8";
+            sha256 =
+              "7c212741163cec1cf38ad845bd71efafcbf81365cf754c978b354c6375dc4da2";
+
+            erlangDeps  = [
+                            certifi_0_3_0
+                            idna_1_0_3
+                            mimerl_1_0_2
+                            ssl_verify_hostname_1_0_5
+                          ];
+
+            meta = {
+              description = "simple HTTP client";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/benoitc/hackney";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hackney = hackney_1_4_8;
+
     hamcrest_0_1_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -1761,6 +3487,26 @@ let
       ) {};
 
     hamcrest = hamcrest_0_1_1;
+
+    hash_ring_ex_1_1_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "hash_ring_ex";
+            version = "1.1.2";
+            sha256 =
+              "f33c2f7cc134d9ab1b91d961395b3a2b4d3d47b12b16c4e9d964bc3b57b7d573";
+
+            meta = {
+              description = "A consistent hash-ring implemention for Elixir.
+";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/reset/hash-ring-ex";
+            };
+          } // packageOverrides)
+      ) {};
+
+    hash_ring_ex = hash_ring_ex_1_1_2;
 
     hlc_2_0_0 = callPackage
       (
@@ -1840,6 +3586,27 @@ let
 
     ibrowse = ibrowse_4_2_2;
 
+    iconv_1_0_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "iconv";
+            version = "1.0.0";
+            sha256 =
+              "2ac0268bf0b392b86dca00b63d90595959ebc3dca6305284045592fa487e7204";
+            compilePorts = true;
+
+            meta = {
+              description =
+                "Fast encoding conversion library for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/iconv";
+            };
+          } // packageOverrides)
+      ) {};
+
+    iconv = iconv_1_0_0;
+
     idna_1_0_2 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -1913,6 +3680,25 @@ let
       ) {};
 
     inaka_mixer = inaka_mixer_0_1_5;
+
+    jc_1_0_4 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "jc";
+            version = "1.0.4";
+            sha256 =
+              "8bcfe202084109fc80fcf521e630466fc53cbb909aff4283bed43252664023df";
+
+            meta = {
+              description = "A simple, distributed, in-memory caching system";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/jr0senblum/jc";
+            };
+          } // packageOverrides)
+      ) {};
+
+    jc = jc_1_0_4;
 
     jiffy_0_14_7 = callPackage
       (
@@ -2182,6 +3968,58 @@ let
 
     jwt = jwt_0_1_1;
 
+    katipo_0_2_4 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cowlib_1_0_0,
+          gproc_0_5_0,
+          quintana_0_2_0,
+          uri_0_1_0
+        }:
+          buildHex ({
+            name = "katipo";
+            version = "0.2.4";
+            sha256 =
+              "7ad315785b1e43a78c9d5912469401ab5fa396182acf1ab40feea39539a53d1e";
+            compilePorts = true;
+            buildPlugins  = [ rebar3_hex ];
+
+            erlangDeps  = [ cowlib_1_0_0 gproc_0_5_0 quintana_0_2_0 uri_0_1_0
+                        ];
+
+            meta = {
+              description = "HTTP client based on libcurl";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/puzza007/katipo";
+            };
+          } // packageOverrides)
+      ) {};
+
+    katipo = katipo_0_2_4;
+
+    keccakf1600_2_0_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "keccakf1600";
+            version = "2.0.0";
+            sha256 =
+              "bf381475f5d1daf1df2f46bf24d1d4b91debb638b5a6b014cdce40e32eee8f07";
+            compilePorts = true;
+
+            meta = {
+              description = "Keccak-f[1600] asynchronous port driver";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/potatosalad/erlang-keccakf1600";
+            };
+          } // packageOverrides)
+      ) {};
+
+    keccakf1600 = keccakf1600_2_0_0;
+
     key2value_1_4_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2236,6 +4074,25 @@ let
       ) {};
 
     keys1value = keys1value_1_5_1;
+
+    kvs_2_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "kvs";
+            version = "2.1.0";
+            sha256 =
+              "c06382e4dbe8a7dc58201187ddd303e5b1e546713da3a3813863fe62e63dc4c7";
+
+            meta = {
+              description = "Erlang Abstract Database";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/synrc/kvs";
+            };
+          } // packageOverrides)
+      ) {};
+
+    kvs = kvs_2_1_0;
 
     lager_2_1_1 = callPackage
       (
@@ -2325,6 +4182,45 @@ let
 
     lager_watchdog = lager_watchdog_0_1_10;
 
+    lasp_0_0_4 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "lasp";
+            version = "0.0.4";
+            sha256 =
+              "d119098a34bbd0331ab1cb22e0f1f1d25da35132f8a61ecdc0ed5c0135c84942";
+
+            meta = {
+              description =
+                "Declarative, distributed, eventually consistent, compuations.";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/lasp-lang/lasp";
+            };
+          } // packageOverrides)
+      ) {};
+
+    lasp = lasp_0_0_4;
+
+    lasse_1_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "lasse";
+            version = "1.1.0";
+            sha256 =
+              "53e70ea9031f7583331a9f9bdbb29da933e591e5c4cce521b4bf85c68e7f3385";
+
+            meta = {
+              description = "Lasse: Server-Sent Event handler for Cowboy.";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/inaka/lasse";
+            };
+          } // packageOverrides)
+      ) {};
+
+    lasse = lasse_1_1_0;
+
     lhttpc_1_3_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2344,6 +4240,46 @@ let
 
     lhttpc = lhttpc_1_3_0;
 
+    libleofs_0_1_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {}, jsx_1_4_5 }:
+          buildHex ({
+            name = "libleofs";
+            version = "0.1.2";
+            sha256 =
+              "62c39168e30a94e6bf0c3b3677995f5735ca03358465a6756db01a75c4e5c04b";
+
+            erlangDeps  = [ jsx_1_4_5 ];
+
+            meta = {
+              description = "LeoFS management library.";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/project-fifo/libleofs";
+            };
+          } // packageOverrides)
+      ) {};
+
+    libleofs = libleofs_0_1_2;
+
+    libsnarlmatch_0_1_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {}, fqc_0_1_5 }:
+          buildHex ({
+            name = "libsnarlmatch";
+            version = "0.1.5";
+            sha256 =
+              "11410122ca7a0685c4a7df1795d7f5a1e7bf9c5f17096414402fd9d1f0e1ac04";
+
+            erlangDeps  = [ fqc_0_1_5 ];
+
+            meta = {
+              description = "permission matcher library";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/project-fifo/libsnarlmatch";
+            };
+          } // packageOverrides)
+      ) {};
+
     libsnarlmatch_0_1_7 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2362,6 +4298,26 @@ let
       ) {};
 
     libsnarlmatch = libsnarlmatch_0_1_7;
+
+    libsodium_0_0_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "libsodium";
+            version = "0.0.3";
+            sha256 =
+              "e66e9d91647a1519194cb0b240144123d68fae0f8cb57a9be9ced30ba8e24397";
+            compilePorts = true;
+
+            meta = {
+              description = "libsodium port driver";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/potatosalad/erlang-libsodium";
+            };
+          } // packageOverrides)
+      ) {};
+
+    libsodium = libsodium_0_0_3;
 
     locker_1_0_8 = callPackage
       (
@@ -2429,6 +4385,45 @@ let
 
     lz4 = lz4_0_2_2;
 
+    mad_0_9_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "mad";
+            version = "0.9.0";
+            sha256 =
+              "5eeb635094586b517f08000b059b680981c7da5527bab83e7bfa3f54176c0f1e";
+
+            meta = {
+              description = "Small and fast rebar replacement";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/synrc/mad";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mad = mad_0_9_0;
+
+    mcrypt_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "mcrypt";
+            version = "0.1.0";
+            sha256 =
+              "508a35ba255190f80309dcabf9c81c88b86b9ec13af180627ad51b8e5cf2a4cd";
+            compilePorts = true;
+
+            meta = {
+              description = "NIF wrapper around libmcrypt.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/system76/elixir-mcrypt";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mcrypt = mcrypt_0_1_0;
+
     mdns_client_0_1_7 = callPackage
       (
         {
@@ -2451,6 +4446,34 @@ let
       ) {};
 
     mdns_client = mdns_client_0_1_7;
+
+    mdns_client_lib_0_1_33 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          lager_2_1_1,
+          mdns_client_0_1_7,
+          pooler_1_4_0
+        }:
+          buildHex ({
+            name = "mdns_client_lib";
+            version = "0.1.33";
+            sha256 =
+              "9ad3723c929acbdfec70021ceb6606e59c7e6189af97652409bfc9624052e0fe";
+
+            erlangDeps  = [ lager_2_1_1 mdns_client_0_1_7 pooler_1_4_0 ];
+
+            meta = {
+              description = "client lib for mdns aware tcp servers";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/Licenser/mdns_client_lib";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mdns_client_lib = mdns_client_lib_0_1_33;
 
     mdns_server_0_2_0 = callPackage
       (
@@ -2637,6 +4660,50 @@ let
 
     mimerl = mimerl_1_1_0;
 
+    mmath_0_1_15 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "mmath";
+            version = "0.1.15";
+            sha256 =
+              "2ad56c5a321dda866f36981df134b9e2f393b46786cd2549ed626d1423458c86";
+            compilePorts = true;
+            buildPlugins  = [ pc ];
+
+
+            meta = {
+              description =
+                "math library for metric sequences and binary arrays.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/mmath";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mmath_0_1_16 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "mmath";
+            version = "0.1.16";
+            sha256 =
+              "dcf450b5527ba445e0b33ecdb0d546fa9bff96f6efbf6d314447f32344d37ef6";
+            compilePorts = true;
+            buildPlugins  = [ pc ];
+
+
+            meta = {
+              description =
+                "math library for metric sequences and binary arrays.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/mmath";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mmath = mmath_0_1_16;
+
     mochiweb_2_12_2 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2658,6 +4725,55 @@ let
 
     mochiweb = mochiweb_2_12_2;
 
+    msgpack_0_4_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "msgpack";
+            version = "0.4.0";
+            sha256 =
+              "cb69184b254bcddfd0b3b813fa9ffc87dd4642ad026bb8117e2384b55239eae4";
+
+            buildPlugins  = [ rebar3_eqc rebar3_hex ];
+
+
+            meta = {
+              description = "MessagePack serializer/deserializer";
+              license = stdenv.lib.licenses.free;
+              homepage = "http://msgpack.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    msgpack = msgpack_0_4_0;
+
+    mstore_0_1_9 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          mmath_0_1_15,
+          trie_1_5_0
+        }:
+          buildHex ({
+            name = "mstore";
+            version = "0.1.9";
+            sha256 =
+              "c9b0ac9de587e72d292b923c12fcc1ce8b74946dd688987246a5a4d26679b6ca";
+
+            erlangDeps  = [ mmath_0_1_15 trie_1_5_0 ];
+
+            meta = {
+              description = "Fast, flat metric store.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/dalmatinerdb/mstore";
+            };
+          } // packageOverrides)
+      ) {};
+
+    mstore = mstore_0_1_9;
+
     mtx_1_0_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2676,6 +4792,45 @@ let
       ) {};
 
     mtx = mtx_1_0_0;
+
+    n2o_2_3_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "n2o";
+            version = "2.3.0";
+            sha256 =
+              "fca4f0a259fda332784d6d7948f8aadec5fb6a7695d5ac79b849b0ae547fb7b8";
+
+            meta = {
+              description = "N2O Application Server";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/synrc/n2o";
+            };
+          } // packageOverrides)
+      ) {};
+
+    n2o = n2o_2_3_0;
+
+    nacl_0_3_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "nacl";
+            version = "0.3.0";
+            sha256 =
+              "83a626d0ddd17a9c9528aa57a79e0e19746a42def007bc48c4984f0905098a7b";
+            compilePorts = true;
+
+            meta = {
+              description = "Erlang-NaCl hex package";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/tonyg/erlang-nacl";
+            };
+          } // packageOverrides)
+      ) {};
+
+    nacl = nacl_0_3_0;
 
     nats_msg_0_3_3 = callPackage
       (
@@ -2765,6 +4920,48 @@ let
 
     nodefinder = nodefinder_1_5_1;
 
+    observer_cli_1_0_3 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, recon_2_2_1
+        }:
+          buildHex ({
+            name = "observer_cli";
+            version = "1.0.3";
+            sha256 =
+              "18e5d9aa5412ec063cf9719bcfe73bf990c5fed5c9a3c8422c2b5d9529fc8b0d";
+
+            erlangDeps  = [ recon_2_2_1 ];
+
+            meta = {
+              description = "Visualize Erlang Nodes On The Command Line";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/zhongwencool/observer_cli";
+            };
+          } // packageOverrides)
+      ) {};
+
+    observer_cli = observer_cli_1_0_3;
+
+    p1_mysql_1_0_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "p1_mysql";
+            version = "1.0.1";
+            sha256 =
+              "4235c0d95d4ec01ed7511ebb253f5c54a9635b766a8b923f41e238ed85008e7d";
+
+            meta = {
+              description = "Pure Erlang MySQL driver";
+              license = with stdenv.lib.licenses; [ free asl20 ];
+              homepage = "https://github.com/processone/p1_mysql";
+            };
+          } // packageOverrides)
+      ) {};
+
+    p1_mysql = p1_mysql_1_0_1;
+
     p1_oauth2_0_6_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2787,6 +4984,49 @@ let
 
     p1_oauth2 = p1_oauth2_0_6_1;
 
+    p1_pgsql_1_0_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "p1_pgsql";
+            version = "1.0.1";
+            sha256 =
+              "7436d18f320b200e4cab6a0c16d6416aa32115b9dcfabfb05af6e9cbd62d1c0c";
+
+            meta = {
+              description = "PostgreSQL driver";
+              license = with stdenv.lib.licenses; [ free asl20 ];
+              homepage = "https://github.com/processone/p1_pgsql";
+            };
+          } // packageOverrides)
+      ) {};
+
+    p1_pgsql = p1_pgsql_1_0_1;
+
+    p1_stringprep_1_0_1 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "p1_stringprep";
+            version = "1.0.1";
+            sha256 =
+              "e36ce6434010eba2fb6fc18bf4ba65797be3bba17a686f79a2326d26614071c0";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
+
+            meta = {
+              description = "Fast Stringprep Erlang / Elixir implementation";
+              license = with stdenv.lib.licenses; [ asl20 free ];
+              homepage = "https://github.com/processone/stringprep";
+            };
+          } // packageOverrides)
+      ) {};
+
+    p1_stringprep = p1_stringprep_1_0_1;
+
     p1_utils_1_0_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2806,6 +5046,50 @@ let
             };
           } // packageOverrides)
       ) {};
+
+    p1_utils_1_0_3 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "p1_utils";
+            version = "1.0.3";
+            sha256 =
+              "6bf7dc7108eee70e036ea745faf5f55b4354e267f14371ea13338f58ce402d5e";
+
+            meta = {
+              description = "Erlang utility modules from ProcessOne";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/p1_utils";
+            };
+          } // packageOverrides)
+      ) {};
+
+    p1_utils = p1_utils_1_0_3;
+
+    p1_xml_1_1_1 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_0
+        }:
+          buildHex ({
+            name = "p1_xml";
+            version = "1.1.1";
+            sha256 =
+              "ab68956163cc5ff8c749c503507a36c543841259e78c58a2bbe0ebe76a0b7ce3";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_0 ];
+
+            meta = {
+              description =
+                "XML parsing library. Now obsolete. Use fast_xml instead";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/xml";
+            };
+          } // packageOverrides)
+      ) {};
+
+    p1_xml = p1_xml_1_1_1;
 
     p1_xmlrpc_1_15_1 = callPackage
       (
@@ -2868,6 +5152,26 @@ let
 
     pc = pc_1_2_0;
 
+    picosat_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "picosat";
+            version = "0.1.0";
+            sha256 =
+              "d9bfa31240906306a6dae6bdd6fb1cb452e9462a391efa63017b17b2877cab51";
+            compilePorts = true;
+
+            meta = {
+              description = "Erlang bindings for PicoSAT";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/tsloughter/picosat";
+            };
+          } // packageOverrides)
+      ) {};
+
+    picosat = picosat_0_1_0;
+
     png_0_1_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2912,6 +5216,23 @@ let
 
     poolboy = poolboy_1_5_1;
 
+    pooler_1_4_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "pooler";
+            version = "1.4.0";
+            sha256 =
+              "08ca384be64045b257a22a3569571c9ef33dafdac44212c7f0596f255e5a0d5c";
+
+            meta = {
+              description = "An OTP Process Pool Application";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/seth/pooler";
+            };
+          } // packageOverrides)
+      ) {};
+
     pooler_1_5_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -2950,6 +5271,23 @@ let
       ) {};
 
     pot = pot_0_9_4;
+
+    pqueue_1_4_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "pqueue";
+            version = "1.4.0";
+            sha256 =
+              "21ce41decd4f2e4957242903c761440c87b96c69afbc8ecd817df03cfe2a4c69";
+
+            meta = {
+              description = "Erlang Priority Queue Implementation";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "https://github.com/okeuday/pqueue";
+            };
+          } // packageOverrides)
+      ) {};
 
     pqueue_1_5_1 = callPackage
       (
@@ -3179,6 +5517,32 @@ let
 
     ranch = ranch_1_2_1;
 
+    rankmatcher_0_1_2 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          libsnarlmatch_0_1_5
+        }:
+          buildHex ({
+            name = "rankmatcher";
+            version = "0.1.2";
+            sha256 =
+              "8ea5974be574159e6ac188fc4309ef86889d6b227df44b1426f39b02b7d533e7";
+
+            erlangDeps  = [ libsnarlmatch_0_1_5 ];
+
+            meta = {
+              description = "Library to rank and match lists";
+              license = stdenv.lib.licenses.cddl;
+              homepage = "https://github.com/dalmatinerdb/mstore";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rankmatcher = rankmatcher_0_1_2;
+
     ratx_0_1_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -3199,6 +5563,25 @@ let
       ) {};
 
     ratx = ratx_0_1_0;
+
+    rebar3_abnfc_plugin_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "rebar3_abnfc_plugin";
+            version = "0.1.0";
+            sha256 =
+              "7c9cf5608888c0fe149cfc4d25a5911e604a1e63f7c0c73c3cf8792a33be9a7b";
+
+            meta = {
+              description = "A rebar plugin for abnfc";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/surik/rebar3_abnfc_plugin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_abnfc_plugin = rebar3_abnfc_plugin_0_1_0;
 
     rebar3_appup_plugin_1_0_0 = callPackage
       (
@@ -3237,6 +5620,53 @@ let
       ) {};
 
     rebar3_asn1_compiler = rebar3_asn1_compiler_1_0_0;
+
+    rebar3_auto_0_3_0 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, enotify_0_1_0
+        }:
+          buildHex ({
+            name = "rebar3_auto";
+            version = "0.3.0";
+            sha256 =
+              "9fcca62411b0b7680426bd911002c0769690aef3838829583ffa4547fd5038b5";
+
+            erlangDeps  = [ enotify_0_1_0 ];
+
+            meta = {
+              description = "Rebar3 plugin for auto compiling on changes";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/tsloughter/rebar3_auto";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_auto = rebar3_auto_0_3_0;
+
+    rebar3_autotest_0_1_1 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, enotify_0_1_0
+        }:
+          buildHex ({
+            name = "rebar3_autotest";
+            version = "0.1.1";
+            sha256 =
+              "7f5856336e772b14a578f0c01ce14b2a195c41d5b595c83662ffd130f7874eac";
+
+            erlangDeps  = [ enotify_0_1_0 ];
+
+            meta = {
+              description =
+                "A rebar3 plugin to run tests automatically when there are changes.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/NobbZ/rebar3_autotest";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_autotest = rebar3_autotest_0_1_1;
 
     rebar3_diameter_compiler_0_3_1 = callPackage
       (
@@ -3277,6 +5707,73 @@ let
 
     rebar3_elixirc = rebar3_elixirc_0_1_0;
 
+    rebar3_eqc_0_0_8 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {}, cf_0_1_2 }:
+          buildHex ({
+            name = "rebar3_eqc";
+            version = "0.0.8";
+            sha256 =
+              "0a5cd09106a23ccad2b528e5c2f68f7884cba367b03e81c055f1f3fc742d1526";
+
+            erlangDeps  = [ cf_0_1_2 ];
+
+            meta = {
+              description = "Plugin to run EQC properties";
+              license = stdenv.lib.licenses.free;
+              homepage =
+                "https://github.com/kellymclaughlin/rebar3-eqc-plugin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_eqc = rebar3_eqc_0_0_8;
+
+    rebar3_exunit_0_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "rebar3_exunit";
+            version = "0.1.1";
+            sha256 =
+              "910d2f2038dcf2b32deb40a36082ad5435389106b2dbd6266e0ee3a20a688650";
+
+            buildPlugins  = [ rebar3_hex ];
+
+
+            meta = {
+              description = "Plugin to run exUnit tests";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/processone/rebar3_exunit_plugin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_exunit = rebar3_exunit_0_1_1;
+
+    rebar3_gpb_plugin_1_0_1 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, gpb_3_18_8
+        }:
+          buildHex ({
+            name = "rebar3_gpb_plugin";
+            version = "1.0.1";
+            sha256 =
+              "78c71dbec76580d1c7e2c138c473581db470383ec70f963dc3d396d5aba5ef1c";
+
+            erlangDeps  = [ gpb_3_18_8 ];
+
+            meta = {
+              description = "A rebar3 gpb plugin for compiling .proto files";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/lrascao/rebar3_gpb_plugin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_gpb_plugin = rebar3_gpb_plugin_1_0_1;
+
     rebar3_hex_1_17_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -3314,6 +5811,29 @@ let
       ) {};
 
     rebar3_idl_compiler = rebar3_idl_compiler_0_3_0;
+
+    rebar3_live_0_1_3 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, enotify_0_1_0
+        }:
+          buildHex ({
+            name = "rebar3_live";
+            version = "0.1.3";
+            sha256 =
+              "d9ee2ff022fc73ac94f206c13ff8aa7591a536704f49c4cbacabf37d181a4391";
+
+            erlangDeps  = [ enotify_0_1_0 ];
+
+            meta = {
+              description = "Rebar3 live plugin";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/pvmart/rebar3_live";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_live = rebar3_live_0_1_3;
 
     rebar3_neotoma_plugin_0_2_0 = callPackage
       (
@@ -3365,6 +5885,27 @@ let
 
     rebar3_proper = rebar3_proper_0_5_0;
 
+    rebar3_proper_plugin_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "rebar3_proper_plugin";
+            version = "0.1.0";
+            sha256 =
+              "7071555afb623e73a2c572de6d4379f9c197b44e68608944eb2835617faed10d";
+
+            buildPlugins  = [ rebar3_hex ];
+
+
+            meta = {
+              description = "A rebar plugin";
+              license = stdenv.lib.licenses.free;
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_proper_plugin = rebar3_proper_plugin_0_1_0;
+
     rebar3_protobuffs_0_2_0 = callPackage
       (
         {
@@ -3390,6 +5931,45 @@ let
       ) {};
 
     rebar3_protobuffs = rebar3_protobuffs_0_2_0;
+
+    rebar3_run_0_2_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "rebar3_run";
+            version = "0.2.0";
+            sha256 =
+              "321e0647893957d1bb05a88d940a8a3b9129097d63529e13f815c4857bf29497";
+            compilePorts = true;
+
+            meta = {
+              description = "A rebar plugin";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/tsloughter/rebar3_run";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_run = rebar3_run_0_2_0;
+
+    rebar3_yang_plugin_0_2_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "rebar3_yang_plugin";
+            version = "0.2.1";
+            sha256 =
+              "8a68890ba67baf25b539acfd20783732a90b57f75f7d868cb62d1f7f061449fa";
+
+            meta = {
+              description = "A rebar plugin for yang";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/surik/rebar3_yang_plugin";
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar3_yang_plugin = rebar3_yang_plugin_0_2_1;
 
     rebar_alias_0_1_0 = callPackage
       (
@@ -3426,6 +6006,49 @@ let
       ) {};
 
     rebar_erl_vsn = rebar_erl_vsn_0_1_0;
+
+    rebar_protobuffs_0_1_0 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, gpb_3_18_8
+        }:
+          buildHex ({
+            name = "rebar_protobuffs";
+            version = "0.1.0";
+            sha256 =
+              "1345b2135aed454855bfc74b760feb420924824c937157098b1f8668deb919b5";
+
+            erlangDeps  = [ gpb_3_18_8 ];
+
+            meta = {
+              description = "A rebar plugin";
+              license = stdenv.lib.licenses.free;
+            };
+          } // packageOverrides)
+      ) {};
+
+    rebar_protobuffs = rebar_protobuffs_0_1_0;
+
+    recon_2_2_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "recon";
+            version = "2.2.1";
+            sha256 =
+              "6c548ad0f4916495a78977674a251847869f85b5125b7c2a44da3178955adfd1";
+
+            meta = {
+              longDescription = "Recon wants to be a set of tools usable in
+                                production to diagnose Erlang problems or
+                                inspect production environment safely.";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/ferd/recon";
+            };
+          } // packageOverrides)
+      ) {};
+
+    recon = recon_2_2_1;
 
     redo_2_0_1 = callPackage
       (
@@ -3580,6 +6203,33 @@ let
 
     rfc3339 = rfc3339_0_2_0;
 
+    riak_ensemble_2_1_3 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          eleveldb_2_1_3,
+          lager_3_0_2
+        }:
+          buildHex ({
+            name = "riak_ensemble";
+            version = "2.1.3";
+            sha256 =
+              "593c68745ce3117c2e0beaa57e36ad2971bd3540645f233df866a19468970ae2";
+
+            erlangDeps  = [ eleveldb_2_1_3 lager_3_0_2 ];
+
+            meta = {
+              description = "Multi-Paxos framework in Erlang";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/basho/riak_ensemble";
+            };
+          } // packageOverrides)
+      ) {};
+
+    riak_ensemble = riak_ensemble_2_1_3;
+
     riak_pb_2_1_0 = callPackage
       (
         {
@@ -3630,6 +6280,27 @@ let
 
     riakc = riakc_2_1_1;
 
+    savory_0_0_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "savory";
+            version = "0.0.2";
+            sha256 =
+              "a45ef32a6f45092e1328bc1eb47bda3c8f992afe863aaa73c455f31b0c8591b9";
+
+            meta = {
+              longDescription = "An Elixir implementation of Freza's salt_nif
+                                which interfaces with libsodium, a wrapper for
+                                the cryptographic primitive libary NaCl. ";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/electricFeel/savory";
+            };
+          } // packageOverrides)
+      ) {};
+
+    savory = savory_0_0_2;
+
     sbroker_0_7_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -3649,6 +6320,51 @@ let
       ) {};
 
     sbroker = sbroker_0_7_0;
+
+    serial_0_1_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "serial";
+            version = "0.1.2";
+            sha256 =
+              "c0aed287f565b7ce1e1091a6a3dd08fd99bf0884c81b53ecf978c502ef652231";
+
+            meta = {
+              description = "Serial communication through Elixir ports";
+              license = stdenv.lib.licenses.isc;
+              homepage = "https://github.com/bitgamma/elixir_serial";
+            };
+          } // packageOverrides)
+      ) {};
+
+    serial = serial_0_1_2;
+
+    service_1_5_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          cloudi_core_1_5_1
+        }:
+          buildHex ({
+            name = "service";
+            version = "1.5.1";
+            sha256 =
+              "283d29bee5e2170a08c1eccb87f89368e9ce831cc52fb0715ed811f43847d2f8";
+
+            erlangDeps  = [ cloudi_core_1_5_1 ];
+
+            meta = {
+              description = "Erlang/Elixir Cloud Framework Service Behavior";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "http://cloudi.org";
+            };
+          } // packageOverrides)
+      ) {};
+
+    service = service_1_5_1;
 
     sfmt_0_13_0 = callPackage
       (
@@ -3774,6 +6490,27 @@ let
 
     siphash = siphash_3_0_0;
 
+    slp_0_0_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "slp";
+            version = "0.0.2";
+            sha256 =
+              "27e5f7330c7ce631f16e3ec5781b31cbb2247d2bcdeab1e979a66dcc4397bd77";
+
+            meta = {
+              longDescription = "An Elixir application for using the Service
+                                Location Protocol. SLP is a commonly used
+                                service discovery protocol.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/stuart/elixir_slp";
+            };
+          } // packageOverrides)
+      ) {};
+
+    slp = slp_0_0_2;
+
     smurf_0_1_3 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -3793,6 +6530,85 @@ let
 
     smurf = smurf_0_1_3;
 
+    snappy_1_1_1 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "snappy";
+            version = "1.1.1";
+            sha256 =
+              "7faed3ec6bcac363c2a6f09b4f000a12c8166b42b3bf70228d532f8afcfbcb6a";
+            compilePorts = true;
+
+            meta = {
+              description =
+                "snappy compressor/decompressor Erlang NIF wrapper";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/barrel-db/snappy";
+            };
+          } // packageOverrides)
+      ) {};
+
+    snappy = snappy_1_1_1;
+
+    sqlite3_1_1_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "sqlite3";
+            version = "1.1.5";
+            sha256 =
+              "fc2beb8b09deec6cf68bd6203ecf28bf827d2073915bc7131c9cd56d5ff27260";
+            compilePorts = true;
+
+            meta = {
+              description = "SQLite3 Interface";
+              license = stdenv.lib.licenses.free;
+              homepage = "https://github.com/processone/erlang-sqlite3";
+            };
+          } // packageOverrides)
+      ) {};
+
+    sqlite3 = sqlite3_1_1_5;
+
+    ssl_verify_hostname_1_0_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "ssl_verify_hostname";
+            version = "1.0.5";
+            sha256 =
+              "f2cb11e6144e10ab39d1e14bf9fb2437b690979c70bf5428e9dc4bfaf1dfeabf";
+
+            meta = {
+              description = "Hostname verification library for Erlang";
+              license = stdenv.lib.licenses.mit;
+              homepage =
+                "https://github.com/deadtrickster/ssl_verify_hostname.erl";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ssl_verify_hostname_1_0_6 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "ssl_verify_hostname";
+            version = "1.0.6";
+            sha256 =
+              "72b2fc8a8e23d77eed4441137fefa491bbf4a6dc52e9c0045f3f8e92e66243b5";
+
+            meta = {
+              description = "Hostname verification library for Erlang";
+              license = stdenv.lib.licenses.mit;
+              homepage =
+                "https://github.com/deadtrickster/ssl_verify_hostname.erl";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ssl_verify_hostname = ssl_verify_hostname_1_0_6;
+
     strftimerl_0_1_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -3811,6 +6627,57 @@ let
       ) {};
 
     strftimerl = strftimerl_0_1_1;
+
+    stringprep_1_0_2 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "stringprep";
+            version = "1.0.2";
+            sha256 =
+              "6990e6d9d9bc241a77ceb54d4afd7332319710dbebdae8f4f0c627186194c520";
+            compilePorts = true;
+
+            erlangDeps  = [ p1_utils_1_0_3 ];
+
+            meta = {
+              description = "Fast Stringprep Erlang / Elixir implementation";
+              license = with stdenv.lib.licenses; [ asl20 free ];
+              homepage = "https://github.com/processone/stringprep";
+            };
+          } // packageOverrides)
+      ) {};
+
+    stringprep = stringprep_1_0_2;
+
+    stun_1_0_1 = callPackage
+      (
+        {
+          buildHex,
+          buildHexErlangMk,
+          packageOverrides ? {},
+          fast_tls_1_0_1,
+          p1_utils_1_0_3
+        }:
+          buildHex ({
+            name = "stun";
+            version = "1.0.1";
+            sha256 =
+              "77c9713436dd51e334698ce1de3e17e3601552c40ced76e2bd321eb5eaa33374";
+
+            erlangDeps  = [ fast_tls_1_0_1 p1_utils_1_0_3 ];
+
+            meta = {
+              description = "STUN and TURN library for Erlang / Elixir";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/processone/stun";
+            };
+          } // packageOverrides)
+      ) {};
+
+    stun = stun_1_0_1;
 
     supool_1_5_1 = callPackage
       (
@@ -3862,6 +6729,27 @@ let
       ) {};
 
     switchboard = switchboard_0_3_2;
+
+    syslog_1_0_2 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "syslog";
+            version = "1.0.2";
+            sha256 =
+              "ca158a84afe482f77cb4668383a6108f1e9190fcdf3035858f426b91b2021bf6";
+            compilePorts = true;
+
+            meta = {
+              description =
+                "Erlang port driver for interacting with syslog via syslog";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "https://github.com/Vagabond/erlang-syslog";
+            };
+          } // packageOverrides)
+      ) {};
+
+    syslog = syslog_1_0_2;
 
     tea_crypto_1_0_0 = callPackage
       (
@@ -3975,6 +6863,26 @@ let
 
     tsuru = tsuru_1_0_2;
 
+    ucol_nif_1_1_5 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHex ({
+            name = "ucol_nif";
+            version = "1.1.5";
+            sha256 =
+              "a6fad2b92dfe84a2654a085163de39cae88762d14c414cdeaeb66ac41d5c156e";
+            compilePorts = true;
+
+            meta = {
+              description = "ICU based collation module";
+              license = stdenv.lib.licenses.bsd3;
+              homepage = "https://github.com/refuge/ucol_nif";
+            };
+          } // packageOverrides)
+      ) {};
+
+    ucol_nif = ucol_nif_1_1_5;
+
     ui_0_1_1 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -4079,6 +6987,25 @@ let
 
     varpool = varpool_1_5_1;
 
+    weber_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "weber";
+            version = "0.1.0";
+            sha256 =
+              "742c45b3c99e207dd0aeccb818edd2ace4af10699c96fbcee0ce2f692dc5fe12";
+
+            meta = {
+              description = "weber - is Elixir MVC web framework.";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/elixir-web/weber";
+            };
+          } // packageOverrides)
+      ) {};
+
+    weber = weber_0_1_0;
+
     websocket_client_1_1_0 = callPackage
       (
         { buildHex, buildHexErlangMk, packageOverrides ? {} }:
@@ -4116,6 +7043,72 @@ let
       ) {};
 
     worker_pool = worker_pool_1_0_4;
+
+    wpa_supplicant_0_1_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "wpa_supplicant";
+            version = "0.1.0";
+            sha256 =
+              "8a73ca51203401755d42ba636918106540aa3723006dab344dc8a7ec8fa2f3d5";
+
+            meta = {
+              longDescription = "Elixir interface to the wpa_supplicant daemon.
+                                The wpa_supplicant provides application support
+                                for scanning for access points, managing Wi-Fi
+                                connections, and handling all of the security
+                                and other parameters associated with Wi-Fi. ";
+              license = with stdenv.lib.licenses; [ asl20 free ];
+              homepage = "https://github.com/fhunleth/wpa_supplicant.ex";
+            };
+          } // packageOverrides)
+      ) {};
+
+    wpa_supplicant = wpa_supplicant_0_1_0;
+
+    xref_runner_0_2_5 = callPackage
+      (
+        {
+          buildHex, buildHexErlangMk, packageOverrides ? {}, getopt_0_8_2
+        }:
+          buildHex ({
+            name = "xref_runner";
+            version = "0.2.5";
+            sha256 =
+              "12ca46c02789b0b2755284dedeb73aac0d9a3120c28c992040feb86766ee2c9a";
+
+            erlangDeps  = [ getopt_0_8_2 ];
+
+            meta = {
+              description = "Xref Runner";
+              license = stdenv.lib.licenses.asl20;
+              homepage = "https://github.com/inaka/xref_runner";
+            };
+          } // packageOverrides)
+      ) {};
+
+    xref_runner = xref_runner_0_2_5;
+
+    yomel_0_5_0 = callPackage
+      (
+        { buildHex, buildHexErlangMk, packageOverrides ? {} }:
+          buildHexErlangMk ({
+            name = "yomel";
+            version = "0.5.0";
+            sha256 =
+              "737be278c9ae9ed40b24a45a461ea47b4979429e1d51b28961d43ee3a6426827";
+            compilePorts = true;
+
+            meta = {
+              description = "Decodes yaml into elixir terms";
+              license = stdenv.lib.licenses.mit;
+              homepage = "https://github.com/Joe-noh/yomel";
+            };
+          } // packageOverrides)
+      ) {};
+
+    yomel = yomel_0_5_0;
 
     zipper_0_1_5 = callPackage
       (

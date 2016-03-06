@@ -4,12 +4,13 @@ stdenv.mkDerivation rec {
     name = "rebar3-nix-bootstrap";
     version = "0.0.3";
 
-    src = fetchFromGitHub {
-        owner = "erlang-nix";
-        repo = "rebar3-nix-bootstrap";
-        rev = "${version}";
-        sha256 = "01yyaz104jj3mxx8k10q3rwpn2rh13q1ja5r0iq37qyjmg8xflhq";
-    };
+    src = /home/gleber/code/erl/rebar3-nix-bootstrap;
+    # src = fetchFromGitHub {
+    #     owner = "erlang-nix";
+    #     repo = "rebar3-nix-bootstrap";
+    #     rev = "${version}";
+    #     sha256 = "01yyaz104jj3mxx8k10q3rwpn2rh13q1ja5r0iq37qyjmg8xflhq";
+    # };
 
     buildInputs = [ erlang ];
 

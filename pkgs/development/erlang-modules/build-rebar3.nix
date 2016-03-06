@@ -66,7 +66,7 @@ let
       tree
       HOME=. rebar3 compile
       ${if compilePorts then ''
-        HOME=. rebar3 pc compile
+        DEBUG=1 HOME=. rebar3 pc compile
       '' else ''''}
       set +x
       runHook postBuild

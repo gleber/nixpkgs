@@ -1,11 +1,13 @@
-{ stdenv, writeText, erlang, elixir, openssl, libyaml, fetchHex, fetchFromGitHub,
-  tree, buildEnv }:
+{ stdenv, writeText, erlang, elixir, rebar3-rebar2-compat, openssl, libyaml, fetchHex, fetchFromGitHub,
+  tree,
+  pc, buildEnv }:
 
 { name, version
 , src, appName ? name
 , setupHook ? null
 , buildInputs ? [], erlangDeps ? []
 , postPatch ? ""
+, compilePorts ? false
 , installPhase ? null
 , meta ? {}
 , ... }:
@@ -24,7 +26,7 @@ let
     inherit version;
     inherit erlangDeps;
 
-    buildInputs = unique (buildInputs ++ [ erlang elixir openssl libyaml tree ]);
+    buildInputs = unique (buildInputs ++ [ erlang elixir openssl libyaml tree rebar3-rebar2-compat ]);
     propagatedBuildInputs = erlangDeps;
 
     inherit src;
@@ -50,9 +52,13 @@ let
 
     buildPhase = ''
       runHook preBuild
+      type -p rebar3 || true
+      type -p rebar || true
+      cat `type -p rebar || true` || true
       set -x
       make
       set +x
+      tree
       runHook postBuild
     '';
 

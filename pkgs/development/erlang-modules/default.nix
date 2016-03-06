@@ -18,8 +18,10 @@ let
 
     buildRebar3 = callPackage ./build-rebar3.nix {};
     buildErlangMk = callPackage ./build-erlang-mk.nix {};
+    buildMakeWithErlang = callPackage ./build-make-w-erlang.nix {};
     buildHex = callPackage ./build-hex.nix {};
     buildHexErlangMk = callPackage ./build-hex-erlang-mk.nix {};
+    buildHexMakeWithErlang = callPackage ./build-hex-make-w-erlang.nix {};
 
     ## Non hex packages
     webdriver = callPackage ./webdriver {};
