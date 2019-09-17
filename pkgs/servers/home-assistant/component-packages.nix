@@ -545,7 +545,7 @@
     "pjlink" = ps: with ps; [  ];
     "plaato" = ps: with ps; [ aiohttp-cors ];
     "plant" = ps: with ps; [  ];
-    "plex" = ps: with ps; [  ];
+    "plex" = ps: with ps; [ plexapi ];
     "plum_lightpad" = ps: with ps; [  ];
     "pocketcasts" = ps: with ps; [  ];
     "point" = ps: with ps; [ aiohttp-cors ];
