@@ -1,19 +1,17 @@
 { stdenv, buildPythonPackage, fetchPypi, isPy3k
-, requests, tqdm, websocket-client
+, requests, tqdm, websocket_client
 }:
 
 buildPythonPackage rec {
-  pname = "plexapi";
+  pname = "PlexAPI";
   version = "3.1.0";
-
-  disabled = !isPy3k;
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "9886b1c8321d16e971376dc609b902e0c84118846642b5e09f08a4ca876a7f20";
+    sha256 = "0kffx74ppvadkg3lv7dd03h3fmas1j8l2kkhgxrr6ssb6mpqfi20";
   };
 
-  propagatedBuildInputs = [ websocket-client tqdm requests ];
+  propagatedBuildInputs = [ websocket_client tqdm requests ];
 
   checkInputs = [ ];
 
