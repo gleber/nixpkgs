@@ -34,20 +34,20 @@ let
       "e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6")
     (mkOverride "cryptography_vectors" "2.7" # required by cryptography==2.7
       "f12dfb9bd669a68004074cb5b26df6e93ed1a95ebd1a999dff0a840212ff68bc")
-    (mkOverride "importlib-metadata" "0.18"
-      "cb6ee23b46173539939964df59d3d72c3e0c1b5d54b84f1d8a7e912fe43612db")
-    (mkOverride "python-slugify" "3.0.2"
-      "57163ffb345c7e26063435a27add1feae67fa821f1ef4b2f292c25847575d758")
-    (mkOverride "pyyaml" "5.1.1"
-      "b4bb4d3f5e232425e25dda21c070ce05168a786ac9eda43768ab7f3ac2770955")
+    # (mkOverride "importlib-metadata" "0.18"
+    #   "cb6ee23b46173539939964df59d3d72c3e0c1b5d54b84f1d8a7e912fe43612db")
+    (mkOverride "python-slugify" "3.0.3"
+      "0rpz8i790nm22jc5rgbvsdfv3c7nnphph3b7a7i207mighi6ix59")
+    # (mkOverride "pyyaml" "5.1.1"
+    #   "b4bb4d3f5e232425e25dda21c070ce05168a786ac9eda43768ab7f3ac2770955")
     (mkOverride "requests" "2.22.0"
       "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4")
-    (mkOverride "ruamel_yaml" "0.15.97"
-      "17dbf6b7362e7aee8494f7a0f5cffd44902a6331fe89ef0853b855a7930ab845")
-    (mkOverride "voluptuous" "0.11.5"
-      "567a56286ef82a9d7ae0628c5842f65f516abcb496e74f3f59f1d7b28df314ef")
-    (mkOverride "voluptuous-serialize" "2.1.0"
-      "d30fef4f1aba251414ec0b315df81a06da7bf35201dcfb1f6db5253d738a154f")
+    (mkOverride "ruamel_yaml" "0.15.100"
+      "1r5j9n2jdq48z0k4bdia1f7krn8f2x3y49i9ba9iks2rg83g6hlf")
+    (mkOverride "voluptuous" "0.11.7"
+      "0mplkcpb5d8wjf8vk195fys4y6a3wbibiyf708imw33lphfk9g1a")
+    (mkOverride "voluptuous-serialize" "2.2.0"
+      "0ggiisrq7cbk307d09fdwfdcjb667jv90lx6gfwhxfpxgq66cccb")
 
     # used by auth.mfa_modules.totp
     (mkOverride "pyotp" "2.2.7"
@@ -98,7 +98,7 @@ let
   extraBuildInputs = extraPackages py.pkgs;
 
   # Don't forget to run parse-requirements.py after updating
-  hassVersion = "0.96.2";
+  hassVersion = "0.99.0";
 
 in with py.pkgs; buildPythonApplication rec {
   pname = "homeassistant";
@@ -113,7 +113,7 @@ in with py.pkgs; buildPythonApplication rec {
     owner = "home-assistant";
     repo = "home-assistant";
     rev = version;
-    sha256 = "0qxdsr7zh2yqzignbhi8gcp67ba6gcp2yiyr1rww33a42r4fi0g5";
+    sha256 = "1ndin1nqr7m8l3kq90rc4c35n350imvp7njm6g9hxcyk64b011ki";
   };
 
   propagatedBuildInputs = [

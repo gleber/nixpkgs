@@ -2663,6 +2663,8 @@ in {
 
   prov = callPackage ../development/python-modules/prov { };
 
+  ptvsd = callPackage ../development/python-modules/ptvsd { };
+
   pudb = callPackage ../development/python-modules/pudb { };
 
   pybtex = callPackage ../development/python-modules/pybtex {};
