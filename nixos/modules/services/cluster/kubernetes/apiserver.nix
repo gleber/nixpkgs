@@ -375,7 +375,9 @@ in
             Group = "kubernetes";
             AmbientCapabilities = "cap_net_bind_service";
             Restart = "on-failure";
-            RestartSec = 5;
+            RestartSec = 10;
+            StartLimitIntervalSec = 10;
+            StartLimitBurst = 10;
           };
         };
 
