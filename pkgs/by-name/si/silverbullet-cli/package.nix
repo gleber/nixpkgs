@@ -10,6 +10,9 @@
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "silverbullet-cli";
   version = "2.6.1";
+  strictDeps = true;
+  __structuredAttrs = true;
+
 
   src =
     finalAttrs.passthru.sources.${stdenv.hostPlatform.system}
