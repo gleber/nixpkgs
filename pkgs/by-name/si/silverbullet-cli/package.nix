@@ -13,7 +13,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   strictDeps = true;
   __structuredAttrs = true;
 
-
   src =
     finalAttrs.passthru.sources.${stdenv.hostPlatform.system}
       or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
