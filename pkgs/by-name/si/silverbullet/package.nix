@@ -1,75 +1,80 @@
 {
-  autoPatchelfHook,
-  common-updater-scripts,
-  fetchzip,
   lib,
+  buildGoModule,
+  buildNpmPackage,
+  fetchFromGitHub,
   nixosTests,
-  stdenv,
-  stdenvNoCC,
-  writeShellScript,
+  testers,
 }:
-stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "silverbullet";
+
+let
   version = "2.6.1";
 
-  src =
-    finalAttrs.passthru.sources.${stdenv.hostPlatform.system}
-      or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+  src = fetchFromGitHub {
+    owner = "silverbulletmd";
+    repo = "silverbullet";
+    rev = version;
+    hash = "sha256-vHRLOYsFsQjpDu3mlbJxWq+P07JnHdO54myFb2Rm18s=";
+  };
 
-  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  frontend = buildNpmPackage {
+    pname = "silverbullet-frontend";
+    inherit version src;
 
-  buildInputs = [ stdenv.cc.cc.lib ];
+    npmDepsHash = "sha256-I5ohns5NKA2rl+jJDEbKb/P6ky6QjyLZc2QzcCsSu4A=";
 
-  installPhase = ''
-    runHook preInstall
-    mkdir -p $out/bin
-    cp $src/silverbullet $out/bin/
-    runHook postInstall
+    buildPhase = ''
+      runHook preBuild
+
+      npm run build
+      npm run build:plug-compile
+
+      runHook postBuild
+    '';
+
+    installPhase = ''
+      runHook preInstall
+
+      mkdir -p $out/client_bundle
+      cp -r client_bundle/* $out/client_bundle/
+
+      runHook postInstall
+    '';
+  };
+in
+buildGoModule (finalAttrs: {
+  pname = "silverbullet";
+  inherit version src;
+
+  vendorHash = "sha256-SvMPyJbSVrj+lwXrNh2WEYNI41oqlzchFxCtXvIl4/4=";
+
+  env.CGO_ENABLED = 0;
+
+  ldflags = [
+    "-X main.version=${version}"
+  ];
+
+  preBuild = ''
+    rm -rf client_bundle/*
+    cp -r --no-preserve=mode ${frontend}/client_bundle/* client_bundle/
   '';
 
   passthru = {
-    sources = {
-      "x86_64-linux" = fetchzip {
-        url = "https://github.com/silverbulletmd/silverbullet/releases/download/${finalAttrs.version}/silverbullet-server-linux-x86_64.zip";
-        hash = "sha256-m0bQ3J99WZ9CBrA7M2i7Sh/lOI5c+z/an+9bNfQZW4c=";
-        stripRoot = false;
-      };
-      "aarch64-linux" = fetchzip {
-        url = "https://github.com/silverbulletmd/silverbullet/releases/download/${finalAttrs.version}/silverbullet-server-linux-aarch64.zip";
-        hash = "sha256-BqTKMCpifX3Y5kFWQb/9exAjjTc/KeUhYtsHSR850qE=";
-        stripRoot = false;
-      };
-      "x86_64-darwin" = fetchzip {
-        url = "https://github.com/silverbulletmd/silverbullet/releases/download/${finalAttrs.version}/silverbullet-server-darwin-x86_64.zip";
-        hash = "sha256-sqvB9kEpMimcH/rtOc7lBMptu3Cdu6M3z85TfD9QuZ4=";
-        stripRoot = false;
-      };
-      "aarch64-darwin" = fetchzip {
-        url = "https://github.com/silverbulletmd/silverbullet/releases/download/${finalAttrs.version}/silverbullet-server-darwin-aarch64.zip";
-        hash = "sha256-K/4w4jsa+RIYQA9cW2U/oycJx7PfUzcdG6WjZswRLU0=";
-        stripRoot = false;
-      };
-    };
-
-    updateScript = writeShellScript "update-silverbullet" ''
-      NEW_VERSION="$1"
-      for platform in ${lib.escapeShellArgs finalAttrs.meta.platforms}; do
-        ${lib.getExe' common-updater-scripts "update-source-version"} "silverbullet" "$NEW_VERSION" --ignore-same-version --source-key="sources.$platform"
-      done
-    '';
-
     tests = {
       inherit (nixosTests) silverbullet;
+      version = testers.testVersion {
+        package = finalAttrs.finalPackage;
+        command = "silverbullet version";
+      };
     };
   };
 
   meta = {
-    changelog = "https://github.com/silverbulletmd/silverbullet/blob/${finalAttrs.version}/website/CHANGELOG.md";
+    changelog = "https://github.com/silverbulletmd/silverbullet/blob/${version}/website/CHANGELOG.md";
     description = "Open-source, self-hosted, offline-capable Personal Knowledge Management (PKM) web application";
     homepage = "https://silverbullet.md";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ aorith ];
     mainProgram = "silverbullet";
-    platforms = builtins.attrNames finalAttrs.passthru.sources;
   };
 })
