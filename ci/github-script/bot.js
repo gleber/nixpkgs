@@ -12,11 +12,16 @@ module.exports = async ({ github, context, core, dry }) => {
   // Detect if running in a fork (not NixOS/nixpkgs)
   const isFork = context.repo.owner !== 'NixOS'
 
-  const orgId = (
-    await github.rest.orgs.get({
-      org: context.repo.owner,
-    })
-  ).data.id
+  let orgId = null
+  try {
+    orgId = (
+      await github.rest.orgs.get({
+        org: context.repo.owner,
+      })
+    ).data.id
+  } catch (e) {
+    if (e.status !== 404) throw e
+  }
 
   async function downloadMaintainerMap(branch) {
     let run
