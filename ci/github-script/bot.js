@@ -20,7 +20,7 @@ module.exports = async ({ github, context, core, dry }) => {
       })
     ).data.id
   } catch (e) {
-    if (e.status !== 404) throw e
+    if (e.status !== 404 && (!e.response || e.response.status !== 404)) throw e
   }
 
   async function downloadMaintainerMap(branch) {
@@ -174,6 +174,7 @@ module.exports = async ({ github, context, core, dry }) => {
   // Same for teams
   const teams = {}
   function getTeam(id) {
+    if (!orgId) return Promise.resolve(undefined);
     if (!teams[id]) {
       teams[id] = github
         .request({
