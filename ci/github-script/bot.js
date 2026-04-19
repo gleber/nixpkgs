@@ -20,7 +20,7 @@ module.exports = async ({ github, context, core, dry }) => {
       })
     ).data.id
   } catch (e) {
-    console.log("Failed to get org data, likely a user fork:", e.status);
+    console.log('Failed to get org data, likely a user fork:', e.status)
   }
 
   async function downloadMaintainerMap(branch) {
