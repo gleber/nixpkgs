@@ -77,11 +77,15 @@ stdenv.mkDerivation {
 
   dontUnpack = true;
 
+  strictDeps = true;
+
   nativeBuildInputs = [
     bun
   ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ stdenv.cc.cc.lib ];
+
+  __structuredAttrs = true;
 
   buildPhase = ''
     runHook preBuild
