@@ -66,8 +66,7 @@ let
       "aarch64-darwin" = "bun-darwin-arm64";
       "x86_64-darwin" = "bun-darwin-x64";
     }
-    .${stdenv.hostPlatform.system}
-      or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+    .${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
 in
 stdenv.mkDerivation {
@@ -81,7 +80,8 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     bun
-  ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   buildInputs = lib.optionals stdenv.hostPlatform.isLinux [ stdenv.cc.cc.lib ];
 
